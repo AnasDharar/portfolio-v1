@@ -13,6 +13,7 @@ function App() {
   return (
     <>
       <NavBar />
+      
       <div className='relative bg-white h-auto m-8 -z-1'>
         <div className='absolute top-0 right-0 h-full w-[60px] bg-linear-to-l from-[#121212] to-transparent'></div>
         <div className='absolute top-0 left-0 h-full w-[60px] bg-linear-to-r from-[#121212] to-transparent'></div>
@@ -34,8 +35,26 @@ function App() {
         </div>
         </div>
         <div className='text-neutral-400 ml-4 flex space-x-2'><div>19, he/him | </div><TypingEffect text={text} /> <div> from India</div></div>
+        <div className='flex justify-center items-center'>
+          <div className='ml-4 mt-4 text-lg text-neutral-300'>
+            I build practical software with a focus on <p className='inline bg-amber-300 text-black p-1 rounded-md'> efficiency, clarity, and speed.</p> 
+            Comfortable across frontend and backend, I care more about systems that work than buzzwords.
+          </div>
+        </div>
       <div className='m-8 text-center text-lg'>
-        A 20 year-old developer from India who loves building efficient, scalable, and intuitive applications. With over a year of hands-on experience, I previously worked at a US-based startup and am now building a stealth startup as a Founding engineer.
+        A 20 year-old developer from India who loves building efficient, scalable, and intuitive applications.
+        With over a year of hands-on experience, I previously worked at a US-based startup 
+        and am now building a stealth startup as a Founding engineer.
+      </div>
+      <div className='m-8 text-center text-lg'>
+        A 20 year-old developer from India who loves building efficient, scalable, and intuitive applications.
+        With over a year of hands-on experience, I previously worked at a US-based startup 
+        and am now building a stealth startup as a Founding engineer.
+      </div>
+      <div className='m-8 text-center text-lg'>
+        A 20 year-old developer from India who loves building efficient, scalable, and intuitive applications.
+        With over a year of hands-on experience, I previously worked at a US-based startup 
+        and am now building a stealth startup as a Founding engineer.
       </div>
       </div>
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import './App.css'
 import banner from './assets/Berserk.jpg'
 import logo from './assets/anasdharar.jpg'
@@ -7,6 +6,7 @@ import linkedin from './assets/linkedin.png'
 import twitter from './assets/twitter.png'
 import resume from './assets/resume.png'
 import {NavBar} from './components/NavBar'
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import { TypingEffect } from './components/TypingEffect'
 function App() {
   let text = ["Competitive Programmer", "Freelancer", "Web Developer", "Tech Enthusiast"];
@@ -23,7 +23,7 @@ function App() {
 
       <div className='flex flex-col ml-12 -mt-20 text-white font-gabarito duration-100'>
         <img src={logo} alt="Logo" className='w-32 h-32 object-cover rounded-full border-4 border-black'/>
-        <div className='grid grid-cols-2 ml-4 space-x-2 text-md font-gabarito text-neutral-300'>
+        <div className='grid grid-cols-2 ml-4 space-x-2'>
         <div className='text-4xl text-neutral-100 font-bold font-instrument-serif'>Anas Dharar</div>
         <div className='flex justify-end gap-4 mr-8'>
           
@@ -33,10 +33,12 @@ function App() {
           <div className=' w-6 h-6 hover:scale-125 duration-200'><img src={resume} alt="" className='invert object-cover'/></div>
         </div>
         </div>
-        <div className='ml-4 flex space-x-2'><div>19, he/him | </div><TypingEffect text={text} /> <div> from India</div></div>
-
-
+        <div className='text-neutral-400 ml-4 flex space-x-2'><div>19, he/him | </div><TypingEffect text={text} /> <div> from India</div></div>
+      <div className='m-8 text-center text-lg'>
+        A 20 year-old developer from India who loves building efficient, scalable, and intuitive applications. With over a year of hands-on experience, I previously worked at a US-based startup and am now building a stealth startup as a Founding engineer.
       </div>
+      </div>
+
 
       <div className='text-white flex justify-center items-center mt-8'>
         Still Under Construction...

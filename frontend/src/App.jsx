@@ -1,6 +1,6 @@
 import './App.css'
 import banner from './assets/Berserk.jpg'
-import logo from './assets/anasdharar.jpg'
+import logo from './assets/logo2.jpg'
 import github from './assets/github.png'
 import linkedin from './assets/linkedin.png'
 import twitter from './assets/twitter.png'

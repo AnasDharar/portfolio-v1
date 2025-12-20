@@ -37,7 +37,7 @@ function App() {
         <div className='text-neutral-400 ml-4 flex space-x-2'><div>19, he/him | </div><TypingEffect text={text} /> <div> from India</div></div>
         <div className='flex justify-center items-center'>
           <div className='ml-4 mt-4 text-lg text-neutral-300'>
-            I build practical software with a focus on <p className='inline bg-amber-300 text-black p-1 rounded-md'> efficiency, clarity, and speed.</p> 
+            I build practical software with a focus on <p className='inline bg-amber-300 text-[#121212] p-1 rounded-md'> efficiency, clarity, and speed.</p> 
             Comfortable across frontend and backend, I care more about systems that work than buzzwords.
           </div>
         </div>

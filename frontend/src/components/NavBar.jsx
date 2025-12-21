@@ -2,7 +2,7 @@ import React from 'react'
 
 export const NavBar = () => {
   return (
-    <div className='sticky top-4 left-0 flex backdrop-blur-sm bg-black/30 justify-between items-center p-4 m-4 rounded-full border border-neutral-700 text-neutral-400 font-gabarito'>
+    <div className='sticky top-4 left-0 flex backdrop-blur-sm bg-black/30 justify-between items-center p-4 m-4 rounded-full border border-neutral-700 text-neutral-400 font-gabarito z-10'>
         <div className='ml-4 font-instrument-serif text-white text-2xl italic'>
             Salaar
         </div>

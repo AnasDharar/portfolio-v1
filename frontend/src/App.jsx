@@ -32,10 +32,10 @@ function App() {
           <div className='text-4xl text-neutral-100 font-bold font-instrument-serif'>Anas Dharar</div>
           <div className='flex justify-end gap-4 mr-8'>
 
-            <div className=' w-6 h-6 hover:scale-125 duration-200'><img src={github} alt="" className='invert object-cover' /></div>
-            <div className=' w-6 h-6 hover:scale-125 duration-200'><img src={linkedin} alt="" className='invert object-cover' /></div>
-            <div className=' w-6 h-6 hover:scale-125 duration-200'><img src={twitter} alt="" className='invert object-cover' /></div>
-            <div className=' w-6 h-6 hover:scale-125 duration-200'><img src={resume} alt="" className='invert object-cover' /></div>
+            <a href='https://github.com/AnasDharar' className=' w-6 h-6 hover:scale-125 duration-200'><img src={github} alt="" className='invert object-cover' /></a>
+            <a href='https://linkedin.com/in/AnasDharar' className=' w-6 h-6 hover:scale-125 duration-200'><img src={linkedin} alt="" className='invert object-cover' /></a>
+            <a href='https://twitter.com/anasdharar' className=' w-6 h-6 hover:scale-125 duration-200'><img src={twitter} alt="" className='invert object-cover' /></a>
+            <a href='https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing' className=' w-6 h-6 hover:scale-125 duration-200'><img src={resume} alt="" className='invert object-cover' /></a>
           </div>
         </div>
         <div className='text-neutral-400 ml-4 flex space-x-2'><div>19, he/him | </div><TypingEffect text={text} /> <div> from India</div></div>

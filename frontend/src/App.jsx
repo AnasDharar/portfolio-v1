@@ -9,10 +9,13 @@ import { NavBar } from './components/NavBar'
 import { Marquee } from './components/Marquee'
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import { TypingEffect } from './components/TypingEffect'
+import { useState } from 'react'
+import { SkillBlocks } from './components/SkillBlocks'
 function App() {
   let text = ["Competitive Programmer", "Freelancer", "Web Developer", "Tech Enthusiast"];
+  const [skillsState, setSkillsState] = useState("blocks"); // "marquee" or "blocks"
   return (
-    <>
+    <div className='flex flex-col justify-center items-center'>
       <NavBar />
 
       <div className='relative bg-white h-auto m-8 -z-1'>
@@ -43,15 +46,63 @@ function App() {
             &nbsp; Comfortable across frontend and backend, I care more about systems that work than buzzwords.
           </div>
 
-          <Marquee />
         </div>
+        
       </div>
-
+      <div className='relative flex flex-col justify-center items-center mt-8 w-3/4'>
+        <div className='text-neutral-400 font-instrument-serif text-3xl'>
+            Tech Stack I use
+        </div>
+        <div className='relative grid grid-cols-2 border border-neutral-600 rounded-lg mt-4'>
+          <div className={`absolute left-0 h-full w-1/2 bg-white transition-transform duration-300 ease-in-out ${skillsState==="marquee" ? "translate-x-0 rounded-l-lg rounded-r-0" : "translate-x-full rounded-r-lg rounded-l-0"}`}></div>
+          <div className={`m-2 text-center z-10 cursor-pointer duration-300 ease-in-out ${skillsState==="marquee" ? "text-black" : ""}`} onClick={() => {setSkillsState("marquee")}}>Marquee</div>
+          <div className={`m-2 text-center z-10 cursor-pointer duration-300 ease-in-out ${skillsState==="blocks" ? "text-black" : ""}`} onClick={() => {setSkillsState("blocks")}}>Blocks</div>
+        </div>
+        {skillsState==="marquee" && (
+          <Marquee />
+        )}
+        {skillsState==="blocks" && (
+          <SkillBlocks />
+        )}
+        </div>
 
       <div className='text-white flex justify-center items-center mt-8'>
         Still Under Construction...
       </div>
-    </>
+      <div className='text-white flex justify-center items-center mt-8'>
+        Still Under Construction...
+      </div>
+      <div className='text-white flex justify-center items-center mt-8'>
+        Still Under Construction...
+      </div>
+      <div className='text-white flex justify-center items-center mt-8'>
+        Still Under Construction...
+      </div>
+      <div className='text-white flex justify-center items-center mt-8'>
+        Still Under Construction...
+      </div>
+      <div className='text-white flex justify-center items-center mt-8'>
+        Still Under Construction...
+      </div>
+      <div className='text-white flex justify-center items-center mt-8'>
+        Still Under Construction...
+      </div>
+      <div className='text-white flex justify-center items-center mt-8'>
+        Still Under Construction...
+      </div>
+      <div className='text-white flex justify-center items-center mt-8'>
+        Still Under Construction...
+      </div>
+      <div className='text-white flex justify-center items-center mt-8'>
+        Still Under Construction...
+      </div>
+      <div className='text-white flex justify-center items-center mt-8'>
+        Still Under Construction...
+      </div>
+      <div className='text-white flex justify-center items-center mt-8'>
+        Still Under Construction...
+      </div>
+    </div>
   )
 }
 

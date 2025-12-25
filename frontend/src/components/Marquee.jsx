@@ -11,7 +11,7 @@ function Box({prop}) {
 }
 export const Marquee = () => {
     return (
-        <div className='group/marquee relative flex flex-row w-3/4 overflow-hidden justify-center items-center'>
+        <div className='group/marquee relative flex flex-row w-full overflow-hidden justify-center items-center'>
         <div className='absolute top-0 left-0 h-full w-[100px] bg-linear-to-r from-[#000000] to-transparent z-10'></div>
         <div className='absolute top-0 right-0 h-full w-[100px] bg-linear-to-l from-[#000000] to-transparent z-10'></div>
             <div className='flex justify-center animate-marquee flex-row group-hover/marquee:[animation-play-state:paused]'>

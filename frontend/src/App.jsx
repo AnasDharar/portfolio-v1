@@ -10,7 +10,7 @@ function App() {
   let text = ["Competitive Programmer", "Freelancer", "Web Developer", "Tech Enthusiast"];
   const [skillsState, setSkillsState] = useState("marquee"); // "marquee" or "blocks"
   return (
-    <div className='flex flex-col justify-center items-center p-8'>
+    <div className='flex flex-col justify-center items-center md:p-8 p-2'>
       <NavBar />
 
       <div className='relative bg-white -z-1 w-full h-auto'>
@@ -21,33 +21,32 @@ function App() {
         <img src="icons/Berserk.jpg" alt="Berserk Banner" className='w-full h-auto' />
       </div>
 
-      <div className='flex flex-col ml-4 mr-4 -mt-20 text-white font-gabarito duration-100'>
-        <img src="/newpfp.jpg" alt="Logo" className='w-32 h-32 object-cover rounded-full border-4 border-black' />
-        <div className='grid grid-cols-2 ml-4 space-x-2'>
-          <div className='md:text-4xl text-2xl text-neutral-100 font-bold font-instrument-serif'>Anas Dharar</div>
-          <div className='flex justify-end md:gap-4 gap-2 md:mr-8'>
-
-            <a href='https://github.com/AnasDharar' className=' w-6 h-6 hover:scale-125 duration-200'><img src="icons/github.png" alt="" className='invert object-cover' /></a>
-            <a href='https://linkedin.com/in/AnasDharar' className=' w-6 h-6 hover:scale-125 duration-200'><img src="icons/linkedin.png" alt="" className='invert object-cover' /></a>
-            <a href='https://twitter.com/anasdharar' className=' w-6 h-6 hover:scale-125 duration-200'><img src="icons/twitter.png" alt="" className='invert object-cover' /></a>
-            <a href='https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing' className=' w-6 h-6 hover:scale-125 duration-200'><img src="icons/resume.png" alt="" className='invert object-cover' /></a>
+      <div className='flex flex-col md:ml-4 md:mr-4 -mt-10 md:-mt-20 text-white font-gabarito duration-100'>
+        <img src="/newpfp.jpg" alt="Logo" className='w-20 md:w-32 h-auto m-2 object-cover rounded-full border-4 border-black' />
+        <div className='grid grid-cols-1 md:grid-cols-2 ml-4 space-x-2'>
+          <div className='md:text-4xl text-xl text-neutral-100 font-bold font-instrument-serif'>Anas Dharar</div>
+          <div className='flex md:justify-end md:gap-4 gap-2 md:mr-8'>
+            <a href='https://github.com/AnasDharar' className='w-4 md:w-6 h-auto hover:scale-125 duration-200'><img src="icons/github.png" alt="" className='invert object-cover' /></a>
+            <a href='https://linkedin.com/in/AnasDharar' className='w-4 md:w-6 h-auto hover:scale-125 duration-200'><img src="icons/linkedin.png" alt="" className='invert object-cover' /></a>
+            <a href='https://twitter.com/anasdharar' className='w-4 md:w-6 h-auto hover:scale-125 duration-200'><img src="icons/twitter.png" alt="" className='invert object-cover' /></a>
+            <a href='https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing' className='w-4 md:w-6 h-auto hover:scale-125 duration-200'><img src="icons/resume.png" alt="" className='invert object-cover' /></a>
           </div>
         </div>
         <div className='text-neutral-400 ml-4 text-sm md:text-md flex space-x-2'><div>19, he/him | </div><TypingEffect text={text} /></div>
 
         <div className='flex flex-col justify-center items-center'>
-          <div className='ml-4 mt-4 text-md text-neutral-300'>
+          <div className='m-4 mt-4 text-md text-neutral-300'>
             {/* I build practical software with a focus on <p className='inline bg-amber-300 text-neutral-800 p-1 rounded-md'> efficiency, clarity, and speed.</p>
             &nbsp; Comfortable across frontend and backend, I care more about systems that work than buzzwords. */}
-            <ul className='list-none gap-2 flex flex-col'>
+            <ul className='list-none gap-2 flex flex-col text-sm sm:text-base text-neutral-300'>
               <li>
-                Hi! I am <span className='font-instrument-serif italic text-lg'> Anas Dharar </span>, a <span className='font-mono text-sm bg-yellow-400 p-1 rounded-md text-black'> web developer</span> && <span className='font-mono text-sm bg-green-400 p-1 rounded-md text-black'> competitive programmer</span>.
-                I love building <span className='border-b-2 border-purple-300 font-serif'> efficient and good looking web applications</span> that solve <span className='text-white font-bold font-sans'>real-world problems.</span> </li>
+                Hi! I am <span className='font-instrument-serif italic text-lg'> Anas Dharar </span>, a <span className='font-mono border-b border-b-yellow-400'> web developer</span> && <span className='font-mono border-b border-b-green-400'> competitive programmer</span>.
+                I love building <span className='border-b border-purple-300 font-serif'> efficient and good looking web applications</span> that solve real-world problems. </li>
               {/* <br /> */}
 
-              <li>I’m an IT student who spends time both on <span className='font-bold font-white border-b-2 border-green-400'> problem-solving fundamentals</span> and on <span className='font-bold font-white border-b-2 border-yellow-400'> building software end-to-end.</span></li>
+              {/* <li>I’m an IT student who spends time both on <span className='font-bold font-white border-b border-green-400'> problem-solving fundamentals</span> and on <span className='font-bold font-white border-b border-yellow-400'> building software end-to-end.</span></li> */}
               {/* <br /> */}
-              <li>I learn stuff by <span className='font-mono'> building</span>. <span className='border-b-2 border-purple-300'>I break down problems, solve them one by one, and iterate until it works just as I want it to be.</span></li>
+              <li>I learn stuff by <span className='font-mono'> building</span>. <span className='border-b border-purple-300'>I break down problems, solve them one by one, and iterate until it works just as I want it to be.</span></li>
               <li>Besides coding, I enjoy <span className='font-serif italic border-b'> listening to music, teaching and playing chess </span></li>
             </ul>
 

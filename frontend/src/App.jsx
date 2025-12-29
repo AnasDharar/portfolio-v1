@@ -5,31 +5,71 @@ import { SpeedInsights } from "@vercel/speed-insights/react"
 import { TypingEffect } from './components/TypingEffect'
 import { useState } from 'react'
 import { SkillBlocks, Box } from './components/SkillBlocks'
-import { SquareArrowOutUpRight, Github } from 'lucide-react'
+
+import { Experience } from './components/Experience'
+import { Education } from './components/Education'
+import { Footer } from './components/Footer'
+let experience = [{
+    'position': "Assistant Secretary",
+    'organization': "Microsoft Learn Students' Club, WCE Sangli",
+    'duration': "August '25 - Present",
+    'details': [
+        "Led a 2-day workshop on Microsoft Azure fundamentals for 250+ students",
+        "Delivered technical sessions covering Azure core services and cloud fundamentals",
+        "Managed event planning and execution with the MLSC core team"
+    ],
+    'image': "mlsc"
+}
+,{
+    'position': "ML Research Intern",
+    'organization': "Veermata Jijabai College of Engineering (VJTI) , Mumbai",
+    'duration': "May '25 - July '25",
+    'details': [
+        "Designed and trained a deep learning pipeline (U-Net + postprocessing) to extract editable agricultural field boundaries from drone imagery.",
+        "Designed outputs specifically for human-in-the-loop correction, ensuring predicted boundaries could be manually edited by end users to fix model errors and improve trust in ML outputs."
+    ],
+    'image': "vjti"
+}]
+let education = [{
+    'degree': "B.Tech in Information Technology",
+    'college': "Walchand College of Engineering, Sangli",
+    'duration': "2024 - 2028",
+    // 'image': "wce" 
+},
+{
+  'degree': "Class 12th - Science Stream",
+  'college': "Rahul International School, Boisar",
+  'duration': "2023 - 2024",
+}]
 function App() {
   let text = ["Competitive Programmer", "Freelancer", "Web Developer", "Tech Enthusiast"];
   const [skillsState, setSkillsState] = useState("marquee"); // "marquee" or "blocks"
+  const [isMlscExpanded, setIsMlscExpanded] = useState(false);
   return (
     <div className='flex flex-col justify-center items-center md:p-8 p-2'>
       <NavBar />
 
       <div className='relative bg-white -z-1 w-full h-auto'>
-        <div className='absolute top-0 right-0 h-full w-[60px] bg-linear-to-l from-[#121212] to-transparent'></div>
-        <div className='absolute top-0 left-0 h-full w-[60px] bg-linear-to-r from-[#121212] to-transparent'></div>
-        <div className='absolute bottom-0 left-0 w-full h-[60px] bg-linear-to-t from-[#121212] to-transparent'></div>
-        <div className='absolute top-0 right-0 w-full h-[60px] bg-linear-to-b from-[#121212] to-transparent'></div>
+        <div className='absolute top-0 right-0 h-full w-[30px] md:w-[60px] bg-linear-to-l from-[#121212] to-transparent'></div>
+        <div className='absolute top-0 left-0 h-full w-[30px] md:w-[60px] bg-linear-to-r from-[#121212] to-transparent'></div>
+        <div className='absolute bottom-0 left-0 w-full h-[30px] md:h-[60px] bg-linear-to-t from-[#121212] to-transparent'></div>
+        <div className='absolute top-0 right-0 w-full h-[30px] md:h-[60px] bg-linear-to-b from-[#121212] to-transparent'></div>
         <img src="icons/Berserk.jpg" alt="Berserk Banner" className='w-full h-auto' />
       </div>
 
       <div className='flex flex-col md:ml-4 md:mr-4 -mt-10 md:-mt-20 text-white font-gabarito duration-100'>
         <img src="/newpfp.jpg" alt="Logo" className='w-20 md:w-32 h-auto m-2 object-cover rounded-full border-4 border-black' />
         <div className='grid grid-cols-1 md:grid-cols-2 ml-4 space-x-2'>
-          <div className='md:text-4xl text-xl text-neutral-100 font-bold font-instrument-serif'>Anas Dharar</div>
+          <div className='md:text-4xl text-3xl text-neutral-100 font-bold font-instrument-serif'>
+            <div className='border-b-2 border-dashed border-purple-400 w-fit'>
+              Anas Dharar
+            </div>
+            </div>
           <div className='flex md:justify-end md:gap-4 gap-2 md:mr-8'>
-            <a href='https://github.com/AnasDharar' className='w-4 md:w-6 h-auto hover:scale-125 duration-200'><img src="icons/github.png" alt="" className='invert object-cover' /></a>
-            <a href='https://linkedin.com/in/AnasDharar' className='w-4 md:w-6 h-auto hover:scale-125 duration-200'><img src="icons/linkedin.png" alt="" className='invert object-cover' /></a>
-            <a href='https://twitter.com/anasdharar' className='w-4 md:w-6 h-auto hover:scale-125 duration-200'><img src="icons/twitter.png" alt="" className='invert object-cover' /></a>
-            <a href='https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing' className='w-4 md:w-6 h-auto hover:scale-125 duration-200'><img src="icons/resume.png" alt="" className='invert object-cover' /></a>
+            <a href='https://github.com/AnasDharar' className='w-6 h-auto hover:scale-110 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/github.png" alt="" className='invert object-cover' /></a>
+            <a href='https://linkedin.com/in/AnasDharar' className='w-6 h-auto hover:scale-110 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/linkedin.png" alt="" className='invert object-cover' /></a>
+            <a href='https://twitter.com/anasdharar' className='w-6 h-auto hover:scale-110 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/twitter.png" alt="" className='invert object-cover' /></a>
+            <a href='https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing' className='w-6 h-auto hover:scale-110 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/resume.png" alt="" className='invert object-cover' /></a>
           </div>
         </div>
         <div className='text-neutral-400 ml-4 text-sm md:text-md flex space-x-2'><div>19, he/him | </div><TypingEffect text={text} /></div>
@@ -56,8 +96,8 @@ function App() {
         </div>
 
       </div>
-      <div className='relative flex flex-col justify-center items-center mt-8 w-3/4'>
-        <div className='text-neutral-400 font-instrument-serif text-3xl'>
+      <div className='relative flex flex-col justify-center items-center mt-8 w-full md:w-3/4'>
+        <div className='text-neutral-200 font-instrument-serif text-3xl border-b-2 border-dashed border-purple-400'>
           Tech Stack I use
         </div>
         {/* the toggle button (doesnt look good imo, so commented for now) */}
@@ -75,66 +115,31 @@ function App() {
       </div>
 
       {/* Experience Section */}
-      <div className='relative flex flex-col justify-center items-center mt-16 md:mx-8'>
-        <div className='text-neutral-400 font-instrument-serif text-3xl mb-8'>
+      <div className='relative flex flex-col justify-center items-center mt-16 md:mx-8 w-full md:w-3/4'>
+        <div className='text-neutral-200 font-instrument-serif text-3xl mb-8 border-b-2 border-dashed border-purple-400'>
           Experience
         </div>
         <div className='w-full space-y-6'>
 
-          <div className='border border-neutral-600 rounded-lg p-6 hover:border-neutral-500 duration-200 group'>
-            <div className='flex min-h-15 gap-2'>
-              <img src="./exp/mlsc.jpg" className='h-15 w-auto rounded-md' alt="" />
-              <div className='flex flex-col md:flex-row w-full md:justify-between'>
-                <div className='flex flex-col'>
-                  <h3 className='text-xl text-neutral-400 font-gabarito font-bold group-hover:text-neutral-300 duration-200'>Assistant Secretary</h3>
-                  <p className='text-neutral-400 text-md group-hover:text-neutral-300 duration-200'>Microsoft Learn Students' Club, WCE Sangli</p>
-                </div>
-                <span className='text-neutral-400 text-sm group-hover:text-neutral-300 duration-200 italic'>August '25 - Present</span>
-              </div>
-            </div>
-
-            <ul className='text-neutral-400 text-sm mt-4 space-y-2 list-none duration-200 group-hover:text-neutral-300'>
-              <li>Led a 2-day workshop on Microsoft Azure fundamentals for 250+ students <br />
-                Delivered technical sessions covering Azure core services and cloud fundamentals <br />
-                Managed event planning and execution with the MLSC core team</li>
-            </ul>
-          </div>
-
-          <div className='border border-neutral-600 rounded-lg p-6 hover:border-neutral-500 duration-200 group'>
-            <div className='flex min-h-15 gap-2'>
-              <img src="./exp/vjti.jpg" className='h-15 w-auto rounded-md' alt="" />
-              <div className='flex flex-col md:flex-row'>
-                <div className='flex flex-col'>
-                  <h3 className='text-xl text-neutral-400 font-gabarito font-bold group-hover:text-neutral-300 duration-200'>ML Research Intern</h3>
-                  <p className='text-neutral-400 text-md group-hover:text-neutral-300 duration-200'>Veermata Jijabai College of Engineering (VJTI) , Mumbai</p>
-                </div>
-                <span className='text-neutral-400 text-sm group-hover:text-neutral-300 duration-200 italic'>May '25 - July '25</span>
-              </div>
-            </div>
-
-            <ul className='text-neutral-400 mt-4 text-sm space-y-2 list-none duration-200 group-hover:text-neutral-300'>
-              <li>Designed and trained a deep learning pipeline (U-Net + postprocessing) to extract editable
-                agricultural field boundaries from drone imagery.</li>
-              <li>Designed outputs specifically for human-in-the-loop correction, ensuring predicted boundaries
-                could be manually edited by end users to fix model errors and improve trust in ML outputs.</li>
-            </ul>
-          </div>
+          {experience.map((exp, index) => (
+            <Experience key={index} prop={exp} />
+          ))}
 
 
         </div>
       </div>
 
       {/* Projects Section */}
-      <div className='relative flex flex-col justify-center items-center mt-16 mb-16'>
-        <div className='text-neutral-400 font-instrument-serif text-3xl mb-8'>
+      <div className='relative flex flex-col justify-center items-center my-6'>
+        <div className='text-neutral-200 font-instrument-serif text-3xl mb-8 border-b-2 border-dashed border-purple-400'>
           Projects
         </div>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6 w-full'>
 
           <div className='border bg-neutral-900 border-neutral-900 rounded-xl hover:border hover:border-neutral-600 hover:shadow-lg hover:shadow-amber-300/10 duration-200 group'>
-            <img src="projects/firesolve.png" alt="" className='rounded-xl' />
+            <img src="projects/firesolve.png" alt="" className='rounded-xl group-hover:scale-105 group-hover:border group-hover:border-neutral-500 duration-200' />
             <div className='p-6'>
-              <h3 className='text-2xl text-neutral-400 font-gabarito font-bold mb-2 group-hover:text-neutral-300 duration-200'>FireSolve</h3>
+              <h3 className='text-2xl text-neutral-300 font-gabarito font-bold mb-2 group-hover:text-neutral-200 duration-200'>FireSolve</h3>
               <div className='flex flex-wrap mb-4'>
 
                 <Box prop={{ name: "Django", image: "django" }} />
@@ -143,7 +148,7 @@ function App() {
                 <Box prop={{ name: "Tailwind", image: "tailwind-css" }} />
                 <Box prop={{ name: "PostgreSQL", image: "postgresql" }} />
               </div>
-              <p className='text-neutral-400 mb-4'>
+              <p className='text-neutral-400 group-hover:text-neutral-300 mb-4 duration-200'>
                 A platform to track Problems of the Day (POTD) from programming sites like LeetCode and
                 curates its own POTDs for the sites like CodeChef and CodeForces, which don’t have this feature.
               </p>
@@ -170,42 +175,25 @@ function App() {
         </div>
       </div>
 
-      <div className='text-white flex justify-center items-center mt-8'>
-        Still Under Construction...
+      {/* Education Section */}
+      <div className='relative flex flex-col justify-center items-center md:mx-8 w-full md:w-3/4 my-6'>
+        <div className='text-neutral-200 font-instrument-serif text-3xl mb-4 border-b-2 border-dashed border-purple-400'>
+          Education
+        </div>
+        <div className='w-full space-y-6'>
+          {education.map((edu, index) => (
+            <Education key={index} prop={edu} />
+          ))}
+        </div>
       </div>
-      <div className='text-white flex justify-center items-center mt-8'>
-        Still Under Construction...
-      </div>
-      <div className='text-white flex justify-center items-center mt-8'>
-        Still Under Construction...
-      </div>
-      <div className='text-white flex justify-center items-center mt-8'>
-        Still Under Construction...
-      </div>
-      <div className='text-white flex justify-center items-center mt-8'>
-        Still Under Construction...
-      </div>
-      <div className='text-white flex justify-center items-center mt-8'>
-        Still Under Construction...
-      </div>
-      <div className='text-white flex justify-center items-center mt-8'>
-        Still Under Construction...
-      </div>
-      <div className='text-white flex justify-center items-center mt-8'>
-        Still Under Construction...
-      </div>
-      <div className='text-white flex justify-center items-center mt-8'>
-        Still Under Construction...
-      </div>
-      <div className='text-white flex justify-center items-center mt-8'>
-        Still Under Construction...
-      </div>
-      <div className='text-white flex justify-center items-center mt-8'>
-        Still Under Construction...
-      </div>
-      <div className='text-white flex justify-center items-center mt-8'>
-        Still Under Construction...
-      </div>
+
+      {/* <div className='relative flex flex-col justify-center items-center md:mx-8 w-full md:w-3/4'>
+          <div className=''>
+            Let's Connect
+          </div>
+      </div> */}
+
+      <Footer />
     </div>
   )
 }

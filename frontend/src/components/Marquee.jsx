@@ -3,8 +3,8 @@ import './Marquee.css'
 const skills = [{name: "TailwindCSS", image:"tailwind-css"}, {name: "HTML", image:"html"}, {name: "CSS", image:"css"}, {name: "JavaScript", image:"javascript"}, {name: "React", image:"react"}, {name: "Python", image:"python"}, {name: "Django", image:"django"}, {name: "C++", image:"cplusplus"}, {name: "Git", image:"git"}, {name: "PostgreSQL", image:"postgresql"}];
 function Box({prop}) {
   return (
-    <div className='flex justify-center items-center flex-col p-4 gap-2 h-30 w-30 text-center group/box'>
-        <img src={`/skills/${prop.image}.png`} alt={prop.name} className='h-10 w-auto grayscale group-hover/box:grayscale-30 duration-200 group-hover/box:scale-120 object-cover'/>
+    <div className='flex justify-center items-center flex-col p-4 gap-2 h-20 w-20 md:h-30 md:w-30 text-center group/box'>
+        <img src={`/skills/${prop.image}.png`} alt={prop.name} className='h-8 md:h-10 w-auto grayscale group-hover/box:grayscale-30 duration-200 group-hover/box:scale-120 object-cover'/>
         <div className='text-neutral-300 text-sm group-hover/box:text-neutral-200 group-hover/box:scale-110 duration-200'>{prop.name}</div>
     </div>
   )

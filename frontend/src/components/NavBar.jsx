@@ -16,9 +16,9 @@ export const NavBar = () => {
         
         {/* Desktop Navigation */}
         <div className='hidden md:flex gap-4 text-lg mr-4'>
-          <div className='hover:text-neutral-300 cursor-pointer'>experience</div>
-          <div className='hover:text-neutral-300 cursor-pointer'>projects</div>
-          <div className='hover:text-neutral-300 cursor-pointer'>achievements</div>
+          <a href='#exp' className='hover:text-neutral-300 cursor-pointer'>experience</a>
+          <a href='#projects' className='hover:text-neutral-300 cursor-pointer'>projects</a>
+          <a href='#connect' className='hover:text-neutral-300 cursor-pointer'>connect</a>
         </div>
 
         {/* Hamburger Menu Button */}
@@ -52,24 +52,24 @@ export const NavBar = () => {
         }`}
       >
         <div className='flex flex-col p-6 gap-4 text-lg text-neutral-400 font-gabarito'>
-          <div 
+          <a href='#exp'
             className='hover:text-neutral-300 cursor-pointer' 
             onClick={toggleMenu}
           >
             experience
-          </div>
-          <div 
+          </a>
+          <a href='#projects' 
             className='hover:text-neutral-300 cursor-pointer' 
             onClick={toggleMenu}
           >
             projects
-          </div>
-          <div 
+          </a>
+          <a href='#connect'
             className='hover:text-neutral-300 cursor-pointer' 
             onClick={toggleMenu}
           >
-            achievements
-          </div>
+            connect
+          </a>
         </div>
       </div>
     </>

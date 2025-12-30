@@ -8,6 +8,7 @@ import { SkillBlocks, Box } from './components/SkillBlocks'
 
 import { Experience } from './components/Experience'
 import { Education } from './components/Education'
+import { SocialBox } from './components/SocialBox'
 import { Footer } from './components/Footer'
 let experience = [{
     'position': "Assistant Secretary",
@@ -115,8 +116,8 @@ function App() {
       </div>
 
       {/* Experience Section */}
-      <div className='relative flex flex-col justify-center items-center mt-16 md:mx-8 w-full md:w-3/4'>
-        <div className='text-neutral-200 font-instrument-serif text-3xl mb-8 border-b-2 border-dashed border-purple-400'>
+      <section id='exp' className='relative flex flex-col justify-center items-center pt-20 md:px-8 w-full md:w-3/4'>
+        <div className='text-neutral-200 font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400'>
           Experience
         </div>
         <div className='w-full space-y-6'>
@@ -127,28 +128,28 @@ function App() {
 
 
         </div>
-      </div>
+      </section>
 
       {/* Projects Section */}
-      <div className='relative flex flex-col justify-center items-center my-6'>
+      <section id='projects' className='relative flex flex-col justify-center items-center pt-20'>
         <div className='text-neutral-200 font-instrument-serif text-3xl mb-8 border-b-2 border-dashed border-purple-400'>
           Projects
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 w-full'>
+        <div className='grid grid-cols-2 gap-6 w-full'>
 
           <div className='border bg-neutral-900 border-neutral-900 rounded-xl hover:border hover:border-neutral-600 hover:shadow-lg hover:shadow-amber-300/10 duration-200 group'>
             <img src="projects/firesolve.png" alt="" className='rounded-xl group-hover:scale-105 group-hover:border group-hover:border-neutral-500 duration-200' />
-            <div className='p-6'>
-              <h3 className='text-2xl text-neutral-300 font-gabarito font-bold mb-2 group-hover:text-neutral-200 duration-200'>FireSolve</h3>
-              <div className='flex flex-wrap mb-4'>
+            <div className='md:p-6 p-2'>
+              <h3 className='text-2xl text-neutral-300 font-gabarito font-bold md:mb-2 group-hover:text-neutral-200 duration-200'>FireSolve</h3>
+              <div className='flex flex-wrap md:mb-4'>
 
-                <Box prop={{ name: "Django", image: "django" }} />
-                <Box prop={{ name: "Python", image: "python" }} />
-                <Box prop={{ name: "JavaScript", image: "javascript" }} />
-                <Box prop={{ name: "Tailwind", image: "tailwind-css" }} />
-                <Box prop={{ name: "PostgreSQL", image: "postgresql" }} />
+                <Box prop={{ name: "Django", image: "django" }} size="small" />
+                <Box prop={{ name: "Python", image: "python" }} size="small" />
+                <Box prop={{ name: "JavaScript", image: "javascript" }} size="small" />
+                <Box prop={{ name: "Tailwind", image: "tailwind-css" }} size="small" />
+                <Box prop={{ name: "PostgreSQL", image: "postgresql" }} size="small" />
               </div>
-              <p className='text-neutral-400 group-hover:text-neutral-300 mb-4 duration-200'>
+              <p className='text-neutral-400 group-hover:text-neutral-300 mb-4 duration-200 text-[10px]'>
                 A platform to track Problems of the Day (POTD) from programming sites like LeetCode and
                 curates its own POTDs for the sites like CodeChef and CodeForces, which don’t have this feature.
               </p>
@@ -173,7 +174,7 @@ function App() {
 
 
         </div>
-      </div>
+      </section>
 
       {/* Education Section */}
       <div className='relative flex flex-col justify-center items-center md:mx-8 w-full md:w-3/4 my-6'>
@@ -187,11 +188,21 @@ function App() {
         </div>
       </div>
 
-      {/* <div className='relative flex flex-col justify-center items-center md:mx-8 w-full md:w-3/4'>
-          <div className=''>
-            Let's Connect
-          </div>
-      </div> */}
+      {/* Let's Connect Section */}
+      <div id='connect' className='relative flex flex-col justify-center items-center md:mx-8 w-full md:w-3/4 my-10'>
+        <div className='text-neutral-200 font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400'>
+          Let's Connect
+        </div>
+        <p className='text-neutral-400 text-sm mb-6 text-center'>
+          Feel free to reach out for collaborations or just a friendly chat.
+        </p>
+        <div className='flex flex-wrap justify-center gap-4'>
+            <SocialBox name="GitHub" image="github.png" link="https://github.com/AnasDharar" />
+            <SocialBox name="LinkedIn" image="linkedin.png" link="https://linkedin.com/in/AnasDharar" />
+            <SocialBox name="Twitter" image="twitter.png" link="https://twitter.com/anasdharar" />
+            <SocialBox name="Resume" image="resume.png" link="https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing" />
+        </div>
+      </div>
 
       <Footer />
     </div>

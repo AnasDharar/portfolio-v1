@@ -135,9 +135,9 @@ function App() {
         <div className='text-neutral-200 font-instrument-serif text-3xl mb-8 border-b-2 border-dashed border-purple-400'>
           Projects
         </div>
-        <div className='grid grid-cols-2 gap-6 w-full'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:w-full w-3/4'>
 
-          <div className='border bg-neutral-900 border-neutral-900 rounded-xl hover:border hover:border-neutral-600 hover:shadow-lg hover:shadow-amber-300/10 duration-200 group'>
+          <div className='border bg-neutral-900 border-neutral-900 rounded-xl hover:shadow-lg hover:shadow-amber-300/10 duration-200 group'>
             <img src="projects/firesolve.png" alt="" className='rounded-xl group-hover:scale-105 group-hover:border group-hover:border-neutral-500 duration-200' />
             <div className='md:p-6 p-2'>
               <h3 className='text-2xl text-neutral-300 font-gabarito font-bold md:mb-2 group-hover:text-neutral-200 duration-200'>FireSolve</h3>
@@ -149,18 +149,18 @@ function App() {
                 <Box prop={{ name: "Tailwind", image: "tailwind-css" }} size="small" />
                 <Box prop={{ name: "PostgreSQL", image: "postgresql" }} size="small" />
               </div>
-              <p className='text-neutral-400 group-hover:text-neutral-300 mb-4 duration-200 text-[10px]'>
+              <p className='text-neutral-400 group-hover:text-neutral-300 mb-4 duration-200 text-sm'>
                 A platform to track Problems of the Day (POTD) from programming sites like LeetCode and
                 curates its own POTDs for the sites like CodeChef and CodeForces, which don’t have this feature.
               </p>
               <div className='flex gap-4'>
-                <div className='group/button flex justify-center items-center gap-2 border border-neutral-500 p-1 rounded-md'>
+                <div className='group/button flex justify-center items-center gap-2 border border-neutral-600 hover:bg-neutral-800 p-1 rounded-md'>
                   <img src="icons/internet.png" className='invert opacity-80 group-hover/button:opacity-100 h-5 duration-200' alt="" />
                   <a href='#' className='text-neutral-400 group-hover/button:text-neutral-300  text-sm duration-200'>Live Demo</a>
                 </div>
-                <div className='group/button flex justify-center items-center gap-2 border border-neutral-500 p-1 rounded-md'>
+                <div className='group/button flex justify-center items-center gap-2 border border-neutral-600 hover:bg-neutral-800 p-1 rounded-md'>
                   <img src="icons/github.png" className='invert h-5' alt="" />
-                  <a href='#' className='text-neutral-400 group-hover/button:text-neutral-300  text-sm duration-200'>GitHub</a>
+                  <a href='https://github.com/AnasDharar/FireSolve' className='text-neutral-400 group-hover/button:text-neutral-300  text-sm duration-200'>GitHub</a>
                 </div>
               </div>
             </div>
@@ -189,7 +189,7 @@ function App() {
       </div>
 
       {/* Let's Connect Section */}
-      <div id='connect' className='relative flex flex-col justify-center items-center md:mx-8 w-full md:w-3/4 my-10'>
+      <div id='connect' className='relative flex flex-col justify-center items-center md:mx-8 w-full md:w-3/4'>
         <div className='text-neutral-200 font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400'>
           Let's Connect
         </div>
@@ -197,10 +197,14 @@ function App() {
           Feel free to reach out for collaborations or just a friendly chat.
         </p>
         <div className='flex flex-wrap justify-center gap-4'>
-            <SocialBox name="GitHub" image="github.png" link="https://github.com/AnasDharar" />
-            <SocialBox name="LinkedIn" image="linkedin.png" link="https://linkedin.com/in/AnasDharar" />
-            <SocialBox name="Twitter" image="twitter.png" link="https://twitter.com/anasdharar" />
-            <SocialBox name="Resume" image="resume.png" link="https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing" />
+            <SocialBox name="GitHub" image="github.png" invert={true} link="https://github.com/AnasDharar" />
+            <SocialBox name="LinkedIn" image="linkedin.png" invert={true} link="https://linkedin.com/in/AnasDharar" />
+            <SocialBox name="Twitter" image="twitter.png" invert={true} link="https://twitter.com/anasdharar" />
+            <SocialBox name="Resume" image="resume.png" invert={true} link="https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing" />
+            <SocialBox name="LeetCode" image="leetcode.png" invert={false} link="https://leetcode.com/u/salaarsenpai" />
+            <SocialBox name="CodeForces" image="codeforces.webp" invert={false} link="https://codeforces.com/profile/anasdharar" />
+            <SocialBox name="CodeChef" image="codechef.webp" invert={true} link="https://www.codechef.com/users/anasdharar" />
+
         </div>
       </div>
 

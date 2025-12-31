@@ -5,7 +5,7 @@ export function Box({prop, size}) {
   let textsize = 'text-sm';
   if (size === 'small') {
     heightClass = 'h-4';
-    textsize = 'text-[10px]';
+    textsize = 'text-sm';
   }
   return (
     <div className='group flex items-center justify-center gap-2 border border-neutral-700 hover:border-neutral-500 font-gabarito p-1 m-1 rounded-md duration-200 cursor-pointer'>

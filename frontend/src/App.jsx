@@ -10,6 +10,8 @@ import { Experience } from './components/Experience'
 import { Education } from './components/Education'
 import { SocialBox } from './components/SocialBox'
 import { Footer } from './components/Footer'
+import { useRef } from 'react'
+import { useEffect } from 'react'
 let experience = [{
     'position': "Assistant Secretary",
     'organization': "Microsoft Learn Students' Club, WCE Sangli",
@@ -44,11 +46,40 @@ let education = [{
 }]
 function App() {
   let text = ["Competitive Programmer", "Freelancer", "Web Developer", "Tech Enthusiast"];
-  const [skillsState, setSkillsState] = useState("marquee"); // "marquee" or "blocks"
+  const [skillsState, setSkillsState] = useState("blocks"); // "marquee" or "blocks"
   const [isMlscExpanded, setIsMlscExpanded] = useState(false);
+  const [isHover, setIsHover] = useState(false);
+  const blob = useRef(null);
+  useEffect(()=> {
+    const handleMouseMove = (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      if (blob.current) {
+        blob.current.style.transform = `translate3d(${x - 12}px, ${y - 12}px, 0)`;
+      }
+      if (isHover) {
+        blob.current.style.width = '45px';
+        blob.current.style.height = '45px';
+        blob.current.style.backgroundColor = 'transparent';
+        blob.current.style.backdropFilter = 'invert(100%)';
+      }
+      else {
+        blob.current.style.width = '24px';
+        blob.current.style.height = '24px';
+        blob.current.style.backgroundColor = 'rgba(255, 255, 255)';
+        blob.current.style.backdropFilter = 'invert(0%)';
+
+      }
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [isHover]);
   return (
     <div className='flex flex-col justify-center items-center md:p-8 p-2'>
-      <NavBar />
+      <div ref={blob} className='fixed w-6 h-6 rounded-full bg-white z-200 top-0 left-0 duration-200 pointer-events-none'></div>
+      <NavBar setIsHover={setIsHover} />
 
       <div className='relative bg-white -z-1 w-full h-auto'>
         <div className='absolute top-0 right-0 h-full w-[30px] md:w-[60px] bg-linear-to-l from-[#121212] to-transparent'></div>
@@ -62,7 +93,7 @@ function App() {
         <img src="/newpfp.jpg" alt="Logo" className='w-20 md:w-32 h-auto m-2 object-cover rounded-full border-4 border-black' />
         <div className='grid grid-cols-1 md:grid-cols-2 ml-4 space-x-2'>
           <div className='md:text-4xl text-3xl text-neutral-100 font-bold font-instrument-serif'>
-            <div className='border-b-2 border-dashed border-purple-400 w-fit'>
+            <div className='border-b-2 border-dashed border-purple-400 w-fit' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
               Anas Dharar
             </div>
             </div>

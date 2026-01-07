@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const NavBar = () => {
+export const NavBar = ({setIsHover}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -16,9 +16,9 @@ export const NavBar = () => {
         
         {/* Desktop Navigation */}
         <div className='hidden md:flex gap-4 text-lg mr-4'>
-          <a href='#exp' className='hover:text-neutral-300 cursor-pointer'>experience</a>
-          <a href='#projects' className='hover:text-neutral-300 cursor-pointer'>projects</a>
-          <a href='#connect' className='hover:text-neutral-300 cursor-pointer'>connect</a>
+          <a href='#exp' className='hover:text-neutral-100 cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>experience</a>
+          <a href='#projects' className='hover:text-neutral-100 cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>projects</a>
+          <a href='#connect' className='hover:text-neutral-100 cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>connect</a>
         </div>
 
         {/* Hamburger Menu Button */}

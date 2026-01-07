@@ -16,7 +16,7 @@ export function Box({prop, size}) {
 }
 export const SkillBlocks = () => {
   return (
-    <div className='flex flex-wrap items-center justify-center w-3/4'>
+    <div className='flex flex-wrap items-center justify-center w-3/4 mt-4'>
         {skills.map((element, index) => (
             <Box key={index} prop={element} />
         ))}

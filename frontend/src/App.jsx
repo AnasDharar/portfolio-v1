@@ -78,7 +78,7 @@ function App() {
   }, [isHover]);
   return (
     <div className='flex flex-col justify-center items-center md:p-8 p-2'>
-      <div ref={blob} className='fixed w-6 h-6 rounded-full bg-white z-200 top-0 left-0 duration-200 pointer-events-none'></div>
+      <div ref={blob} className='fixed w-6 h-6 rounded-full bg-white z-200 top-0 left-0 duration-100 pointer-events-none'></div>
       <NavBar setIsHover={setIsHover} />
 
       <div className='relative bg-white -z-1 w-full h-auto'>

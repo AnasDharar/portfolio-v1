@@ -2,10 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from upstash_redis import Redis
 import os
-redis = Redis(
-    url=os.environ.get("UPSTASH_REDIS_REST_URL"),
-    token=os.environ.get("UPSTASH_REDIS_REST_TOKEN"),
-)
+redis = Redis().from_env()
 app = FastAPI()
 
 app.add_middleware(
@@ -19,5 +16,6 @@ app.add_middleware(
 @app.get("/api/views")
 def get_views():
     # Dummy implementation, replace with actual logic to get views
+    print("Incrementing view count")
     count = redis.incr("portfolio_views")
     return {"views": count}

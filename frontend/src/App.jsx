@@ -169,7 +169,7 @@ function App() {
           ))}
         </div>
       </div>
-      <div className='m-8 flex flex-col justify-center items-center'>
+      <div className='m-8 flex flex-col justify-center items-center overflow-x-auto w-full p-4 md:w-auto'>
         <div className='text-[var(--head-color)] font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400'>
           Github
         </div>

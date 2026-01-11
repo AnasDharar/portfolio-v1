@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const NavBar = ({setIsHover}) => {
+export const NavBar = ({setIsHover, setIsDark, isDark}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -19,6 +19,13 @@ export const NavBar = ({setIsHover}) => {
           <a href='#exp' className='hover:text-neutral-100 cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>experience</a>
           <a href='#projects' className='hover:text-neutral-100 cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>projects</a>
           <a href='#connect' className='hover:text-neutral-100 cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>connect</a>
+          <button
+          onClick={() => setIsDark(!isDark)}
+          className="cursor-pointer"
+          onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}
+        >
+          {isDark ? "light" : "dark"}
+        </button>
         </div>
 
         {/* Hamburger Menu Button */}

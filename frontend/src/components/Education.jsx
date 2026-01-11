@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const Education = ({prop}) => {
+export const Education = ({prop, setIsHover}) => {
   return (
-    <div className='border border-neutral-800 rounded-lg p-4 hover:border-neutral-700 duration-200 group w-full'>
+    <div className='border border-neutral-800 rounded-lg p-4 hover:border-neutral-700 duration-200 group w-full' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
       <div className='flex min-h-15 gap-2'>
         {prop.image && <img src={`./exp/${prop.image}.jpg`} className='h-15 w-auto rounded-md' alt="" />}
         <div className='flex flex-col md:flex-row w-full md:justify-between'>

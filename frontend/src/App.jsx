@@ -2,10 +2,10 @@ import './App.css'
 import { NavBar } from './components/NavBar'
 import { Marquee } from './components/Marquee'
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react"
 import { TypingEffect } from './components/TypingEffect'
 import { useState } from 'react'
 import { SkillBlocks, Box } from './components/SkillBlocks'
-
 import { Experience } from './components/Experience'
 import { Education } from './components/Education'
 import { SocialBox } from './components/SocialBox'
@@ -50,24 +50,34 @@ function App() {
   const [isMlscExpanded, setIsMlscExpanded] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const blob = useRef(null);
+  const [isDark, setIsDark] = useState(false);
   useEffect(()=> {
+    if(isDark) {
+      document.documentElement.classList.add('dark');
+    }
+    else {
+      document.documentElement.classList.remove('dark');
+    }
     const handleMouseMove = (e) => {
       const x = e.clientX;
       const y = e.clientY;
       if (blob.current) {
-        blob.current.style.transform = `translate3d(${x - 12}px, ${y - 12}px, 0)`;
+        blob.current.style.transform = `translate3d(${x - 22}px, ${y - 22}px, 0)`;
       }
       if (isHover) {
         blob.current.style.width = '45px';
         blob.current.style.height = '45px';
         blob.current.style.backgroundColor = 'transparent';
         blob.current.style.backdropFilter = 'invert(100%)';
+        blob.current.style.borderRadius = '50% 50% 50% 50%';
+        blob.current.style.animation = 'none';
       }
       else {
-        blob.current.style.width = '24px';
-        blob.current.style.height = '24px';
+        blob.current.style.width = '40px';
+        blob.current.style.height = '40px';
         blob.current.style.backgroundColor = 'rgba(255, 255, 255)';
         blob.current.style.backdropFilter = 'invert(0%)';
+        blob.current.style.animation = 'blob 3s linear infinite';
 
       }
     };
@@ -75,36 +85,40 @@ function App() {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [isHover]);
+  }, [isHover, isDark]);
   return (
     <div className='flex flex-col justify-center items-center md:p-8 p-2'>
-      <div ref={blob} className='fixed w-6 h-6 rounded-full bg-white z-200 top-0 left-0 duration-100 pointer-events-none'></div>
-      <NavBar setIsHover={setIsHover} />
+      <Analytics />
+      <SpeedInsights />
+      <div ref={blob} className='fixed w-10 h-10 bg-white mix-blend-difference z-200 top-0 left-0 duration-100 pointer-events-none animate-blob'></div>
+      <NavBar setIsHover={setIsHover} setIsDark={setIsDark} isDark={isDark} />
 
-      <div className='relative bg-white -z-1 w-full h-auto'>
+      {/* <div className='relative bg-white -z-1 w-full h-auto'>
         <div className='absolute top-0 right-0 h-full w-[30px] md:w-[60px] bg-linear-to-l from-[#121212] to-transparent'></div>
         <div className='absolute top-0 left-0 h-full w-[30px] md:w-[60px] bg-linear-to-r from-[#121212] to-transparent'></div>
         <div className='absolute bottom-0 left-0 w-full h-[30px] md:h-[60px] bg-linear-to-t from-[#121212] to-transparent'></div>
         <div className='absolute top-0 right-0 w-full h-[30px] md:h-[60px] bg-linear-to-b from-[#121212] to-transparent'></div>
         <img src="icons/Berserk.jpg" alt="Berserk Banner" className='w-full h-auto' />
-      </div>
+      </div> */}
 
-      <div className='flex flex-col md:ml-4 md:mr-4 -mt-10 md:-mt-20 text-white font-gabarito duration-100'>
-        <img src="/newpfp.jpg" alt="Logo" className='w-20 md:w-32 h-auto m-2 object-cover rounded-full border-4 border-black' />
-        <div className='grid grid-cols-1 md:grid-cols-2 ml-4 space-x-2'>
-          <div className='md:text-4xl text-3xl text-neutral-100 font-bold font-instrument-serif'>
+      <div className='flex flex-col md:ml-4 md:mr-4 mt-10 text-white font-gabarito duration-100'>
+        <div className='md:flex items-center'>
+        <img src="/newpfp.jpg" alt="Logo" className='w-20 md:w-20 h-auto m-2 object-cover rounded-full border-4 border-black' />
+        <div className='grid grid-cols-1 md:grid-cols-2 ml-4 space-x-2 w-full'>
+          <div className='md:text-5xl text-3xl text-neutral-100 font-bold font-instrument-serif'>
             <div className='border-b-2 border-dashed border-purple-400 w-fit' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
               Anas Dharar
             </div>
-            </div>
-          <div className='flex md:justify-end md:gap-4 gap-2 md:mr-8'>
-            <a href='https://github.com/AnasDharar' className='w-6 h-auto hover:scale-110 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/github.png" alt="" className='invert object-cover' /></a>
-            <a href='https://linkedin.com/in/AnasDharar' className='w-6 h-auto hover:scale-110 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/linkedin.png" alt="" className='invert object-cover' /></a>
-            <a href='https://twitter.com/anasdharar' className='w-6 h-auto hover:scale-110 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/twitter.png" alt="" className='invert object-cover' /></a>
-            <a href='https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing' className='w-6 h-auto hover:scale-110 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/resume.png" alt="" className='invert object-cover' /></a>
+              <div className='text-neutral-400 text-sm md:text-md flex space-x-2'><div>19, he/him | </div><TypingEffect text={text} /></div>
+          </div>
+          <div className='flex md:justify-end md:gap-4 gap-2 md:mr-8' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
+            <a href='https://github.com/AnasDharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/github.png" alt="" className='invert object-cover' /></a>
+            <a href='https://linkedin.com/in/AnasDharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/linkedin.png" alt="" className='invert object-cover' /></a>
+            <a href='https://twitter.com/anasdharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/twitter.png" alt="" className='invert object-cover' /></a>
+            <a href='https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/resume.png" alt="" className='invert object-cover' /></a>
           </div>
         </div>
-        <div className='text-neutral-400 ml-4 text-sm md:text-md flex space-x-2'><div>19, he/him | </div><TypingEffect text={text} /></div>
+        </div>
 
         <div className='flex flex-col justify-center items-center'>
           <div className='m-4 mt-4 text-md text-neutral-300'>
@@ -128,7 +142,7 @@ function App() {
         </div>
 
       </div>
-      <div className='relative flex flex-col justify-center items-center mt-8 w-full md:w-3/4'>
+      <div className='relative flex flex-col justify-center items-center mt-8 w-full md:w-3/4' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
         <div className='text-neutral-200 font-instrument-serif text-3xl border-b-2 border-dashed border-purple-400'>
           Tech Stack I use
         </div>
@@ -148,13 +162,13 @@ function App() {
 
       {/* Experience Section */}
       <section id='exp' className='relative flex flex-col justify-center items-center pt-20 md:px-8 w-full md:w-3/4'>
-        <div className='text-neutral-200 font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400'>
+        <div className='text-neutral-200 font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
           Experience
         </div>
         <div className='w-full space-y-6'>
 
           {experience.map((exp, index) => (
-            <Experience key={index} prop={exp} />
+            <Experience key={index} prop={exp} setIsHover={setIsHover} />
           ))}
 
 
@@ -163,7 +177,7 @@ function App() {
 
       {/* Projects Section */}
       <section id='projects' className='relative flex flex-col justify-center items-center pt-20'>
-        <div className='text-neutral-200 font-instrument-serif text-3xl mb-8 border-b-2 border-dashed border-purple-400'>
+        <div className='text-neutral-200 font-instrument-serif text-3xl mb-8 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
           Projects
         </div>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:w-full w-3/4'>
@@ -209,37 +223,37 @@ function App() {
 
       {/* Education Section */}
       <div className='relative flex flex-col justify-center items-center md:mx-8 w-full md:w-3/4 my-6'>
-        <div className='text-neutral-200 font-instrument-serif text-3xl mb-4 border-b-2 border-dashed border-purple-400'>
+        <div className='text-neutral-200 font-instrument-serif text-3xl mb-4 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
           Education
         </div>
         <div className='w-full space-y-6'>
           {education.map((edu, index) => (
-            <Education key={index} prop={edu} />
+            <Education key={index} prop={edu} setIsHover={setIsHover} />
           ))}
         </div>
       </div>
 
       {/* Let's Connect Section */}
       <div id='connect' className='relative flex flex-col justify-center items-center md:mx-8 w-full md:w-3/4'>
-        <div className='text-neutral-200 font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400'>
+        <div className='text-neutral-200 font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
           Let's Connect
         </div>
         <p className='text-neutral-400 text-sm mb-6 text-center'>
           Feel free to reach out for collaborations or just a friendly chat.
         </p>
         <div className='flex flex-wrap justify-center gap-4'>
-            <SocialBox name="GitHub" image="github.png" invert={true} link="https://github.com/AnasDharar" />
-            <SocialBox name="LinkedIn" image="linkedin.png" invert={true} link="https://linkedin.com/in/AnasDharar" />
-            <SocialBox name="Twitter" image="twitter.png" invert={true} link="https://twitter.com/anasdharar" />
-            <SocialBox name="Resume" image="resume.png" invert={true} link="https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing" />
-            <SocialBox name="LeetCode" image="leetcode.png" invert={false} link="https://leetcode.com/u/salaarsenpai" />
-            <SocialBox name="CodeForces" image="codeforces.webp" invert={false} link="https://codeforces.com/profile/anasdharar" />
-            <SocialBox name="CodeChef" image="codechef.webp" invert={true} link="https://www.codechef.com/users/anasdharar" />
+            <SocialBox name="GitHub" image="github.png" invert={true} link="https://github.com/AnasDharar" setIsHover={setIsHover} />
+            <SocialBox name="LinkedIn" image="linkedin.png" invert={true} link="https://linkedin.com/in/AnasDharar" setIsHover={setIsHover} />
+            <SocialBox name="Twitter" image="twitter.png" invert={true} link="https://twitter.com/anasdharar" setIsHover={setIsHover} />
+            <SocialBox name="Resume" image="resume.png" invert={true} link="https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing" setIsHover={setIsHover} />
+            <SocialBox name="LeetCode" image="leetcode.png" invert={false} link="https://leetcode.com/u/salaarsenpai" setIsHover={setIsHover} />
+            <SocialBox name="CodeForces" image="codeforces.webp" invert={false} link="https://codeforces.com/profile/anasdharar" setIsHover={setIsHover} />
+            <SocialBox name="CodeChef" image="codechef.webp" invert={true} link="https://www.codechef.com/users/anasdharar" setIsHover={setIsHover} />
 
         </div>
       </div>
 
-      <Footer />
+      <Footer setIsHover={setIsHover} />
     </div>
   )
 }

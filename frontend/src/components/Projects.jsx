@@ -15,7 +15,7 @@ const projects = [
         techStack: ["React", "JavaScript", "Tailwind-CSS", "Firebase", "Gemini-API", "FastAPI"],
         description: "LowSignal is an offline-first, multilingual AI learning platform designed for rural and low-connectivity regions",
         liveDemoLink: "https://lowsignal-c1734.web.app/",
-        githubLink: "#"
+        githubLink: "https://github.com/AnasDharar/LowSignal"
     }
 ]
 export const Projects = () => {

@@ -3,10 +3,26 @@ import { useEffect } from 'react';
 export const Footer = ({ setIsHover}) => {
   let views = useRef(null);
   useEffect(() => {
-  fetch('/api/views') 
-    .then(res => res.json())
-    .then(data => {views.current.textContent = `You are ${data.views}th visitor`; console.log("Current views:", data.views)});
-}, []);
+    fetch('/api/views') 
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
+      .then(data => {
+        if(views.current) {
+          views.current.textContent = `You are ${data.views}th visitor`; 
+          console.log("Current views:", data.views);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching views:', error);
+        if(views.current) {
+          views.current.textContent = "Views: N/A";
+        }
+      });
+  }, []);
   return (
     <footer className="w-full mt-16 border-t border-[var(--border-color)] bg-[var(--footer-bg)]/50 backdrop-blur-sm">
       <div className="max-w-4xl mx-auto px-4 py-8">

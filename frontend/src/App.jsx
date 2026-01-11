@@ -87,10 +87,10 @@ function App() {
               <div className='text-[var(--subtext-color)] text-sm md:text-md flex space-x-2'><div>19, he/him | </div><TypingEffect text={text} /></div>
           </div>
           <div className='flex md:justify-end md:gap-4 gap-2 md:mr-8'>
-            <a href='https://github.com/AnasDharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/github.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
-            <a href='https://linkedin.com/in/AnasDharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/linkedin.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
-            <a href='https://twitter.com/anasdharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/twitter.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
-            <a href='https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/resume.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
+            <a href='https://github.com/AnasDharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full'><img src="icons/github.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
+            <a href='https://linkedin.com/in/AnasDharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full'><img src="icons/linkedin.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
+            <a href='https://twitter.com/anasdharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full'><img src="icons/twitter.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
+            <a href='https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full'><img src="icons/resume.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
           </div>
         </div>
         </div>
@@ -101,7 +101,7 @@ function App() {
             &nbsp; Comfortable across frontend and backend, I care more about systems that work than buzzwords. */}
             <ul className='list-none gap-2 flex flex-col text-sm sm:text-base text-[var(--text-color)]'>
               <li>
-                Hi! I am <span className='font-instrument-serif italic text-lg'> Anas Dharar </span>, a <span className='font-mono border-b border-b-yellow-400'> web developer</span> && <span className='font-mono border-b border-b-green-400'> competitive programmer</span>.
+                Hi! I am <span className='font-instrument-serif italic text-lg'> Anas Dharar </span>, a <span className='font-mono bg-yellow-400 p-1 rounded-md font-bold dark:text-black'> web developer</span> && <span className='font-mono bg-green-400 p-1 rounded-md font-bold dark:text-black'> competitive programmer</span>.
                 I love building <span className='border-b border-purple-300 font-serif'> efficient and good looking web applications</span> that solve real-world problems. </li>
               {/* <br /> */}
 
@@ -186,7 +186,7 @@ function App() {
         <div className='flex flex-wrap justify-center gap-4'>
             <SocialBox name="GitHub" image="github.png" invert={true} link="https://github.com/AnasDharar" />
             <SocialBox name="LinkedIn" image="linkedin.png" invert={true} link="https://linkedin.com/in/AnasDharar" />
-            <SocialBox name="Twitter" image="twitter.png" invert={true} link="https://twitter.com/anasdharar" />
+            <SocialBox name="X" image="twitter.png" invert={true} link="https://twitter.com/anasdharar" />
             <SocialBox name="Resume" image="resume.png" invert={true} link="https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing" />
             <SocialBox name="LeetCode" image="leetcode.png" invert={false} link="https://leetcode.com/u/salaarsenpai" />
             <SocialBox name="CodeForces" image="codeforces.webp" invert={false} link="https://codeforces.com/profile/anasdharar" />

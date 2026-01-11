@@ -1,5 +1,19 @@
 import React from 'react'
-const skills = [{name:"FastAPI", image:"fastapi"},{name:"Gemini-API", image:"gemini-api"}, {name: "FireBase", image:"firebase"}, {name: "TailwindCSS", image:"tailwind-css"}, {name: "HTML", image:"html"}, {name: "CSS", image:"css"}, {name: "JavaScript", image:"javascript"}, {name: "React", image:"react"}, {name: "Python", image:"python"}, {name: "Django", image:"django"}, {name: "C++", image:"cplusplus"}, {name: "Git", image:"git"}, {name: "PostgreSQL", image:"postgresql"}];
+const skills = [
+  {name:"FastAPI", image:"fastapi"},
+  {name: "Django", image:"django"}, 
+  {name: "PostgreSQL", image:"postgresql"},
+  {name: "JavaScript", image:"javascript"}, 
+  {name: "Python", image:"python"}, 
+  {name: "C++", image:"cplusplus"}, 
+  {name: "React", image:"react"}, 
+  {name: "HTML", image:"html"}, 
+  {name: "CSS", image:"css"}, 
+  {name: "TailwindCSS", image:"tailwind-css"}, 
+  {name: "Git", image:"git"}, 
+  {name: "FireBase", image:"firebase"}, 
+  {name:"Gemini-API", image:"gemini-api"}, 
+];
 export function Box({prop, size, gap=2}) {
   let heightClass = 'h-6';
   let textsize = 'text-sm';

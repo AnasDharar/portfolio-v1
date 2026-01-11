@@ -12,7 +12,7 @@ export const Footer = () => {
       })
       .then(data => {
         if(views.current) {
-          views.current.textContent = `You are ${data.views}th visitor`; 
+          views.current.textContent = `${data.views} visitors`; 
           console.log("Current views:", data.views);
         }
       })
@@ -35,7 +35,7 @@ export const Footer = () => {
               © {new Date().getFullYear()} All rights reserved.
             </p>
           </div>
-          <div ref={views}></div>
+          <div ref={views} className='text-[var(--subtext-color)] text-sm'></div>
         </div>
       </div>
     </footer>

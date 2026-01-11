@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 
 export const SocialBox = ({ image, name, link, invert }) => {
+  const container = useRef(null);
+  const [isHover, setIsHover] = useState(false);
+
+  const handleMouseMove = (e) => {
+      if (container.current) {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const height = container.current.offsetHeight;
+          if(height>300) {
+            container.current.style.transform = `translate(${x + 10}px, ${y - height/2}px)`;
+            return;
+          }
+          container.current.style.transform = `translate(${x + 10}px, ${y - height - 10}px)`;
+      }
+  };
+
   return (
-    <a href={link} target="_blank" rel="noopener noreferrer" className='group flex items-center justify-center gap-2 border border-[var(--border-color)] hover:border-[var(--subtext-color)] font-gabarito p-2 px-4 m-1 rounded-md duration-200 cursor-pointer bg-[var(--card-bg)]/30 hover:bg-[var(--hover-bg)]/50 no-underline'>
-        <img src={`icons/${image}`} alt={name} className={`h-5 w-auto object-cover ${invert ? "invert-[var(--invert-value)]" : ""} opacity-70 group-hover:opacity-100 duration-200`} />
-        <div className='text-sm text-[var(--subtext-color)] group-hover:text-[var(--head-color)] duration-200'>{name}</div>
+    <a href={link} target="_blank" rel="noopener noreferrer" className='group relative flex items-center justify-center gap-2 font-gabarito rounded-full duration-200 cursor-pointer bg-[var(--card-bg)] hover:bg-[var(--hover-bg)] p-2' onMouseMove={handleMouseMove} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+      <div ref={container} className={`absolute bg-white rounded-md p-1 border border-[var(--border-color)] top-0 left-0 pointer-events-none z-50 duration-200 ${isHover ? "opacity-100" : "opacity-0"}`}>
+        <img src={`connect/${name.toLowerCase()}.png`} alt="" className='rounded-md w-[300px] max-w-none max-h-[500px]'/>
+      </div>
+        <img src={`icons/${image}`} alt={name} className={`h-6 w-auto object-cover ${invert ? "invert-[var(--invert-value)]" : ""} group-hover:opacity-100 duration-200`} />
+        <span className='group-hover:block text-[var(--text-color)] text-sm group-hover:text-[var(--head-color)] duration-200'>{name}</span>
     </a>
   )
 }

@@ -10,7 +10,9 @@ import { Experience } from './components/Experience'
 import { Education } from './components/Education'
 import { SocialBox } from './components/SocialBox'
 import { Footer } from './components/Footer'
+import { Projects } from './components/Projects'
 import { useRef } from 'react'
+import { GitHubCalendar } from 'react-github-calendar'
 import { useEffect } from 'react'
 let experience = [{
     'position': "Assistant Secretary",
@@ -47,9 +49,8 @@ let education = [{
 function App() {
   let text = ["Competitive Programmer", "Freelancer", "Web Developer", "Tech Enthusiast"];
   const [skillsState, setSkillsState] = useState("blocks"); // "marquee" or "blocks"
-  const [isMlscExpanded, setIsMlscExpanded] = useState(false);
-  const [isHover, setIsHover] = useState(false);
-  const blob = useRef(null);
+  
+  
   const [isDark, setIsDark] = useState(false);
   useEffect(()=> {
     if(isDark) {
@@ -58,40 +59,14 @@ function App() {
     else {
       document.documentElement.classList.remove('dark');
     }
-    const handleMouseMove = (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
-      if (blob.current) {
-        blob.current.style.transform = `translate3d(${x - 22}px, ${y - 22}px, 0)`;
-      }
-      if (isHover) {
-        blob.current.style.width = '45px';
-        blob.current.style.height = '45px';
-        blob.current.style.backgroundColor = 'transparent';
-        blob.current.style.backdropFilter = 'invert(100%)';
-        blob.current.style.borderRadius = '50% 50% 50% 50%';
-        blob.current.style.animation = 'none';
-      }
-      else {
-        blob.current.style.width = '40px';
-        blob.current.style.height = '40px';
-        blob.current.style.backgroundColor = 'rgba(255, 255, 255)';
-        blob.current.style.backdropFilter = 'invert(0%)';
-        blob.current.style.animation = 'blob 3s linear infinite';
-
-      }
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [isHover, isDark]);
+    
+  }, [isDark]);
   return (
     <div className='flex flex-col justify-center items-center md:p-8 p-2'>
       <Analytics />
       <SpeedInsights />
-      <div ref={blob} className='fixed w-10 h-10 bg-white mix-blend-difference z-200 top-0 left-0 duration-100 pointer-events-none animate-blob'></div>
-      <NavBar setIsHover={setIsHover} setIsDark={setIsDark} isDark={isDark} />
+      
+      <NavBar setIsDark={setIsDark} isDark={isDark} />
 
       {/* <div className='relative bg-white -z-1 w-full h-auto'>
         <div className='absolute top-0 right-0 h-full w-[30px] md:w-[60px] bg-linear-to-l from-[#121212] to-transparent'></div>
@@ -103,15 +78,15 @@ function App() {
 
       <div className='flex flex-col md:ml-4 md:mr-4 mt-10 text-[var(--text-main)] font-gabarito duration-100'>
         <div className='md:flex items-center'>
-        <img src="/newpfp.jpg" alt="Logo" className='w-20 md:w-20 h-auto m-2 object-cover rounded-full border-4 border-black' />
+        <img src="/newpfp.jpeg" alt="Logo" className='w-20 md:w-20 h-auto m-2 object-cover rounded-full' />
         <div className='grid grid-cols-1 md:grid-cols-2 ml-4 space-x-2 w-full'>
           <div className='md:text-5xl text-3xl text-[var(--text-main)] font-bold font-instrument-serif'>
-            <div className='border-b-2 border-dashed border-purple-400 w-fit' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+            <div className='border-b-2 border-dashed border-purple-400 w-fit'>
               Anas Dharar
             </div>
               <div className='text-[var(--subtext-color)] text-sm md:text-md flex space-x-2'><div>19, he/him | </div><TypingEffect text={text} /></div>
           </div>
-          <div className='flex md:justify-end md:gap-4 gap-2 md:mr-8' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
+          <div className='flex md:justify-end md:gap-4 gap-2 md:mr-8'>
             <a href='https://github.com/AnasDharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/github.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
             <a href='https://linkedin.com/in/AnasDharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/linkedin.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
             <a href='https://twitter.com/anasdharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/twitter.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
@@ -142,7 +117,7 @@ function App() {
         </div>
 
       </div>
-      <div className='relative flex flex-col justify-center items-center mt-8 w-full md:w-3/4' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
+      <div className='relative flex flex-col justify-center items-center mt-8 w-full md:w-3/4'>
         <div className='text-[var(--head-color)] font-instrument-serif text-3xl border-b-2 border-dashed border-purple-400'>
           Tech Stack I use
         </div>
@@ -162,13 +137,13 @@ function App() {
 
       {/* Experience Section */}
       <section id='exp' className='relative flex flex-col justify-center items-center pt-20 md:px-8 w-full md:w-3/4'>
-        <div className='text-[var(--head-color)] font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
+        <div className='text-[var(--head-color)] font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400'>
           Experience
         </div>
         <div className='w-full space-y-6'>
 
           {experience.map((exp, index) => (
-            <Experience key={index} prop={exp} setIsHover={setIsHover} />
+            <Experience key={index} prop={exp} />
           ))}
 
 
@@ -177,83 +152,50 @@ function App() {
 
       {/* Projects Section */}
       <section id='projects' className='relative flex flex-col justify-center items-center pt-20'>
-        <div className='text-[var(--head-color)] font-instrument-serif text-3xl mb-8 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
+        <div className='text-[var(--head-color)] font-instrument-serif text-3xl mb-8 border-b-2 border-dashed border-purple-400'>
           Projects
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:w-full w-3/4'>
-
-          <div className='border bg-[var(--card-bg)] border-[var(--card-border)] rounded-xl hover:shadow-lg hover:shadow-amber-300/10 duration-200 group'>
-            <img src="projects/firesolve.png" alt="" className='rounded-xl group-hover:scale-105 group-hover:border group-hover:border-neutral-500 duration-200' />
-            <div className='md:p-6 p-2'>
-              <h3 className='text-2xl text-[var(--text-color)] font-gabarito font-bold md:mb-2 group-hover:text-[var(--head-color)] duration-200'>FireSolve</h3>
-              <div className='flex flex-wrap md:mb-4'>
-
-                <Box prop={{ name: "Django", image: "django" }} size="small" />
-                <Box prop={{ name: "Python", image: "python" }} size="small" />
-                <Box prop={{ name: "JavaScript", image: "javascript" }} size="small" />
-                <Box prop={{ name: "Tailwind", image: "tailwind-css" }} size="small" />
-                <Box prop={{ name: "PostgreSQL", image: "postgresql" }} size="small" />
-              </div>
-              <p className='text-[var(--subtext-color)] group-hover:text-[var(--text-color)] mb-4 duration-200 text-sm'>
-                A platform to track Problems of the Day (POTD) from programming sites like LeetCode and
-                curates its own POTDs for the sites like CodeChef and CodeForces, which don’t have this feature.
-              </p>
-              <div className='flex gap-4'>
-                <div className='group/button flex justify-center items-center gap-2 border border-[var(--subtext-color)] hover:bg-[var(--hover-bg)] p-1 rounded-md'>
-                  <img src="icons/internet.png" className='invert-[var(--invert-value)] opacity-80 group-hover/button:opacity-100 h-5 duration-200' alt="" />
-                  <a href='#' className='text-[var(--subtext-color)] group-hover/button:text-[var(--text-color)]  text-sm duration-200'>Live Demo</a>
-                </div>
-                <div className='group/button flex justify-center items-center gap-2 border border-[var(--subtext-color)] hover:bg-[var(--hover-bg)] p-1 rounded-md'>
-                  <img src="icons/github.png" className='invert-[var(--invert-value)] h-5' alt="" />
-                  <a href='https://github.com/AnasDharar/FireSolve' className='text-[var(--subtext-color)] group-hover/button:text-[var(--text-color)]  text-sm duration-200'>GitHub</a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-            <div className='text-[var(--subtext-color)] flex justify-center items-center'>
-              More projects coming soon...
-            </div>
-
-
-
-        </div>
+          <Projects />
       </section>
 
       {/* Education Section */}
       <div className='relative flex flex-col justify-center items-center md:mx-8 w-full md:w-3/4 my-6'>
-        <div className='text-[var(--head-color)] font-instrument-serif text-3xl mb-4 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
+        <div className='text-[var(--head-color)] font-instrument-serif text-3xl mb-4 border-b-2 border-dashed border-purple-400'>
           Education
         </div>
         <div className='w-full space-y-6'>
           {education.map((edu, index) => (
-            <Education key={index} prop={edu} setIsHover={setIsHover} />
+            <Education key={index} prop={edu}/>
           ))}
         </div>
       </div>
-
+      <div className='m-8 flex flex-col justify-center items-center'>
+        <div className='text-[var(--head-color)] font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400'>
+          Github
+        </div>
+      <GitHubCalendar username="AnasDharar" blockSize={8} colorScheme={isDark ? "dark" : "light"}/>
+      </div>
       {/* Let's Connect Section */}
       <div id='connect' className='relative flex flex-col justify-center items-center md:mx-8 w-full md:w-3/4'>
-        <div className='text-[var(--head-color)] font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
+        <div className='text-[var(--head-color)] font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400'>
           Let's Connect
         </div>
         <p className='text-[var(--subtext-color)] text-sm mb-6 text-center'>
           Feel free to reach out for collaborations or just a friendly chat.
         </p>
         <div className='flex flex-wrap justify-center gap-4'>
-            <SocialBox name="GitHub" image="github.png" invert={true} link="https://github.com/AnasDharar" setIsHover={setIsHover} />
-            <SocialBox name="LinkedIn" image="linkedin.png" invert={true} link="https://linkedin.com/in/AnasDharar" setIsHover={setIsHover} />
-            <SocialBox name="Twitter" image="twitter.png" invert={true} link="https://twitter.com/anasdharar" setIsHover={setIsHover} />
-            <SocialBox name="Resume" image="resume.png" invert={true} link="https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing" setIsHover={setIsHover} />
-            <SocialBox name="LeetCode" image="leetcode.png" invert={false} link="https://leetcode.com/u/salaarsenpai" setIsHover={setIsHover} />
-            <SocialBox name="CodeForces" image="codeforces.webp" invert={false} link="https://codeforces.com/profile/anasdharar" setIsHover={setIsHover} />
-            <SocialBox name="CodeChef" image="codechef.webp" invert={true} link="https://www.codechef.com/users/anasdharar" setIsHover={setIsHover} />
+            <SocialBox name="GitHub" image="github.png" invert={true} link="https://github.com/AnasDharar" />
+            <SocialBox name="LinkedIn" image="linkedin.png" invert={true} link="https://linkedin.com/in/AnasDharar" />
+            <SocialBox name="Twitter" image="twitter.png" invert={true} link="https://twitter.com/anasdharar" />
+            <SocialBox name="Resume" image="resume.png" invert={true} link="https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing" />
+            <SocialBox name="LeetCode" image="leetcode.png" invert={false} link="https://leetcode.com/u/salaarsenpai" />
+            <SocialBox name="CodeForces" image="codeforces.webp" invert={false} link="https://codeforces.com/profile/anasdharar" />
+            <SocialBox name="CodeChef" image="codechef.webp" invert={true} link="https://www.codechef.com/users/anasdharar" />
 
         </div>
       </div>
 
-      <Footer setIsHover={setIsHover} />
+      <Footer/>
     </div>
   )
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import { ChevronDown, ChevronUp, UnfoldVertical, FoldVertical } from 'lucide-react'
-export const Experience = ({prop, setIsHover}) => {
+export const Experience = ({prop}) => {
     const [isExpanded, setIsExpanded] = React.useState(false);
   return (
-    <div className='border border-[var(--card-border)] rounded-lg p-4 hover:border-[var(--border-color)] duration-200 group' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
+    <div className='border border-[var(--card-border)] rounded-lg p-4 hover:border-[var(--border-color)] duration-200 group'>
             <div className='flex min-h-15 gap-2'>
               <img src={`./exp/${prop.image}.jpg`} className='h-15 w-auto rounded-md' alt="" />
               <div className='flex flex-col md:flex-row w-full md:justify-between'>

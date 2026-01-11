@@ -22,7 +22,12 @@ app.add_middleware(
 
 @app.get("/api/views")
 def get_views():
-    # Dummy implementation, replace with actual logic to get views
-    print("Incrementing view count")
-    count = redis.incr("portfolio_views")
+    # Only increment count if running in production (Vercel)
+    if os.getenv("ENV") == "production":
+        count = redis.incr("portfolio_views")
+    else:
+        count = redis.get("portfolio_views")
+        if count is None:
+            count = "..."
+            
     return {"views": count}

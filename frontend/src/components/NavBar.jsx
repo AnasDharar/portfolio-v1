@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const NavBar = ({setIsHover, setIsDark, isDark}) => {
+export const NavBar = ({setIsDark, isDark}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -9,20 +9,18 @@ export const NavBar = ({setIsHover, setIsDark, isDark}) => {
 
   return (
     <>
-      <div className='sticky top-4 left-0 flex backdrop-blur-sm bg-[var(--bg-main)]/30 justify-between items-center p-4 m-4 w-full rounded-full border border-[var(--border-color)] text-[var(--subtext-color)] font-gabarito z-50'>
-        <div className='ml-4 font-instrument-serif text-[var(--text-main)] text-2xl italic'>
+      <div className='sticky top-4 left-0 flex backdrop-blur-sm bg-[var(--bg-main)]/30 justify-between items-center p-4 w-full rounded-full border border-[var(--border-color)] text-[var(--subtext-color)] font-gabarito z-50'>
+        <div className='ml-4 font-gabarito text-[var(--text-main)] text-2xl font-bold'>
           Anas.
         </div>
         
         {/* Desktop Navigation */}
         <div className='hidden md:flex gap-4 text-lg mr-4'>
-          <a href='#exp' className='hover:text-[var(--text-main)] cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>experience</a>
-          <a href='#projects' className='hover:text-[var(--text-main)] cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>projects</a>
-          <a href='#connect' className='hover:text-[var(--text-main)] cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>connect</a>
+          <a href='#exp' className='hover:text-[var(--text-main)] cursor-pointer'>work</a>
+          <a href='#projects' className='hover:text-[var(--text-main)] cursor-pointer'>projects</a>
           <button
           onClick={() => setIsDark(!isDark)}
           className="cursor-pointer"
-          onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}
         >
           {isDark ? "light" : "dark"}
         </button>
@@ -63,7 +61,7 @@ export const NavBar = ({setIsHover, setIsDark, isDark}) => {
             className='hover:text-[var(--text-color)] cursor-pointer' 
             onClick={toggleMenu}
           >
-            experience
+            work
           </a>
           <a href='#projects' 
             className='hover:text-[var(--text-color)] cursor-pointer' 
@@ -71,12 +69,12 @@ export const NavBar = ({setIsHover, setIsDark, isDark}) => {
           >
             projects
           </a>
-          <a href='#connect'
-            className='hover:text-[var(--text-color)] cursor-pointer' 
-            onClick={toggleMenu}
+          <button
+            className='hover:text-[var(--text-color)] cursor-pointer text-left' 
+            onClick={() => {setIsDark(!isDark); toggleMenu();}}
           >
-            connect
-          </a>
+            {isDark ? "light mode" : "dark mode"}
+          </button>
         </div>
       </div>
     </>

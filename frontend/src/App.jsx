@@ -101,30 +101,30 @@ function App() {
         <img src="icons/Berserk.jpg" alt="Berserk Banner" className='w-full h-auto' />
       </div> */}
 
-      <div className='flex flex-col md:ml-4 md:mr-4 mt-10 text-white font-gabarito duration-100'>
+      <div className='flex flex-col md:ml-4 md:mr-4 mt-10 text-[var(--text-main)] font-gabarito duration-100'>
         <div className='md:flex items-center'>
         <img src="/newpfp.jpg" alt="Logo" className='w-20 md:w-20 h-auto m-2 object-cover rounded-full border-4 border-black' />
         <div className='grid grid-cols-1 md:grid-cols-2 ml-4 space-x-2 w-full'>
-          <div className='md:text-5xl text-3xl text-neutral-100 font-bold font-instrument-serif'>
+          <div className='md:text-5xl text-3xl text-[var(--text-main)] font-bold font-instrument-serif'>
             <div className='border-b-2 border-dashed border-purple-400 w-fit' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
               Anas Dharar
             </div>
-              <div className='text-neutral-400 text-sm md:text-md flex space-x-2'><div>19, he/him | </div><TypingEffect text={text} /></div>
+              <div className='text-[var(--subtext-color)] text-sm md:text-md flex space-x-2'><div>19, he/him | </div><TypingEffect text={text} /></div>
           </div>
           <div className='flex md:justify-end md:gap-4 gap-2 md:mr-8' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
-            <a href='https://github.com/AnasDharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/github.png" alt="" className='invert object-cover' /></a>
-            <a href='https://linkedin.com/in/AnasDharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/linkedin.png" alt="" className='invert object-cover' /></a>
-            <a href='https://twitter.com/anasdharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/twitter.png" alt="" className='invert object-cover' /></a>
-            <a href='https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-neutral-700 md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/resume.png" alt="" className='invert object-cover' /></a>
+            <a href='https://github.com/AnasDharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/github.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
+            <a href='https://linkedin.com/in/AnasDharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/linkedin.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
+            <a href='https://twitter.com/anasdharar' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/twitter.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
+            <a href='https://drive.google.com/file/d/1Kr-DOzKvOIAC8DiwvvksSf9lcSxMrLOO/view?usp=sharing' className='w-6 h-auto hover:scale-120 duration-200 my-2 bg-[var(--border-color)] md:bg-transparent rounded-full opacity-70 hover:opacity-90'><img src="icons/resume.png" alt="" className='invert-[var(--invert-value)] object-cover' /></a>
           </div>
         </div>
         </div>
 
         <div className='flex flex-col justify-center items-center'>
-          <div className='m-4 mt-4 text-md text-neutral-300'>
+          <div className='m-4 mt-4 text-md text-[var(--text-color)]'>
             {/* I build practical software with a focus on <p className='inline bg-amber-300 text-neutral-800 p-1 rounded-md'> efficiency, clarity, and speed.</p>
             &nbsp; Comfortable across frontend and backend, I care more about systems that work than buzzwords. */}
-            <ul className='list-none gap-2 flex flex-col text-sm sm:text-base text-neutral-300'>
+            <ul className='list-none gap-2 flex flex-col text-sm sm:text-base text-[var(--text-color)]'>
               <li>
                 Hi! I am <span className='font-instrument-serif italic text-lg'> Anas Dharar </span>, a <span className='font-mono border-b border-b-yellow-400'> web developer</span> && <span className='font-mono border-b border-b-green-400'> competitive programmer</span>.
                 I love building <span className='border-b border-purple-300 font-serif'> efficient and good looking web applications</span> that solve real-world problems. </li>
@@ -143,7 +143,7 @@ function App() {
 
       </div>
       <div className='relative flex flex-col justify-center items-center mt-8 w-full md:w-3/4' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
-        <div className='text-neutral-200 font-instrument-serif text-3xl border-b-2 border-dashed border-purple-400'>
+        <div className='text-[var(--head-color)] font-instrument-serif text-3xl border-b-2 border-dashed border-purple-400'>
           Tech Stack I use
         </div>
         {/* the toggle button (doesnt look good imo, so commented for now) */}
@@ -162,7 +162,7 @@ function App() {
 
       {/* Experience Section */}
       <section id='exp' className='relative flex flex-col justify-center items-center pt-20 md:px-8 w-full md:w-3/4'>
-        <div className='text-neutral-200 font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
+        <div className='text-[var(--head-color)] font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
           Experience
         </div>
         <div className='w-full space-y-6'>
@@ -177,15 +177,15 @@ function App() {
 
       {/* Projects Section */}
       <section id='projects' className='relative flex flex-col justify-center items-center pt-20'>
-        <div className='text-neutral-200 font-instrument-serif text-3xl mb-8 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
+        <div className='text-[var(--head-color)] font-instrument-serif text-3xl mb-8 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
           Projects
         </div>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:w-full w-3/4'>
 
-          <div className='border bg-neutral-900 border-neutral-900 rounded-xl hover:shadow-lg hover:shadow-amber-300/10 duration-200 group'>
+          <div className='border bg-[var(--card-bg)] border-[var(--card-border)] rounded-xl hover:shadow-lg hover:shadow-amber-300/10 duration-200 group'>
             <img src="projects/firesolve.png" alt="" className='rounded-xl group-hover:scale-105 group-hover:border group-hover:border-neutral-500 duration-200' />
             <div className='md:p-6 p-2'>
-              <h3 className='text-2xl text-neutral-300 font-gabarito font-bold md:mb-2 group-hover:text-neutral-200 duration-200'>FireSolve</h3>
+              <h3 className='text-2xl text-[var(--text-color)] font-gabarito font-bold md:mb-2 group-hover:text-[var(--head-color)] duration-200'>FireSolve</h3>
               <div className='flex flex-wrap md:mb-4'>
 
                 <Box prop={{ name: "Django", image: "django" }} size="small" />
@@ -194,25 +194,25 @@ function App() {
                 <Box prop={{ name: "Tailwind", image: "tailwind-css" }} size="small" />
                 <Box prop={{ name: "PostgreSQL", image: "postgresql" }} size="small" />
               </div>
-              <p className='text-neutral-400 group-hover:text-neutral-300 mb-4 duration-200 text-sm'>
+              <p className='text-[var(--subtext-color)] group-hover:text-[var(--text-color)] mb-4 duration-200 text-sm'>
                 A platform to track Problems of the Day (POTD) from programming sites like LeetCode and
                 curates its own POTDs for the sites like CodeChef and CodeForces, which don’t have this feature.
               </p>
               <div className='flex gap-4'>
-                <div className='group/button flex justify-center items-center gap-2 border border-neutral-600 hover:bg-neutral-800 p-1 rounded-md'>
-                  <img src="icons/internet.png" className='invert opacity-80 group-hover/button:opacity-100 h-5 duration-200' alt="" />
-                  <a href='#' className='text-neutral-400 group-hover/button:text-neutral-300  text-sm duration-200'>Live Demo</a>
+                <div className='group/button flex justify-center items-center gap-2 border border-[var(--subtext-color)] hover:bg-[var(--hover-bg)] p-1 rounded-md'>
+                  <img src="icons/internet.png" className='invert-[var(--invert-value)] opacity-80 group-hover/button:opacity-100 h-5 duration-200' alt="" />
+                  <a href='#' className='text-[var(--subtext-color)] group-hover/button:text-[var(--text-color)]  text-sm duration-200'>Live Demo</a>
                 </div>
-                <div className='group/button flex justify-center items-center gap-2 border border-neutral-600 hover:bg-neutral-800 p-1 rounded-md'>
-                  <img src="icons/github.png" className='invert h-5' alt="" />
-                  <a href='https://github.com/AnasDharar/FireSolve' className='text-neutral-400 group-hover/button:text-neutral-300  text-sm duration-200'>GitHub</a>
+                <div className='group/button flex justify-center items-center gap-2 border border-[var(--subtext-color)] hover:bg-[var(--hover-bg)] p-1 rounded-md'>
+                  <img src="icons/github.png" className='invert-[var(--invert-value)] h-5' alt="" />
+                  <a href='https://github.com/AnasDharar/FireSolve' className='text-[var(--subtext-color)] group-hover/button:text-[var(--text-color)]  text-sm duration-200'>GitHub</a>
                 </div>
               </div>
             </div>
 
           </div>
 
-            <div className='text-neutral-600 flex justify-center items-center'>
+            <div className='text-[var(--subtext-color)] flex justify-center items-center'>
               More projects coming soon...
             </div>
 
@@ -223,7 +223,7 @@ function App() {
 
       {/* Education Section */}
       <div className='relative flex flex-col justify-center items-center md:mx-8 w-full md:w-3/4 my-6'>
-        <div className='text-neutral-200 font-instrument-serif text-3xl mb-4 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
+        <div className='text-[var(--head-color)] font-instrument-serif text-3xl mb-4 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
           Education
         </div>
         <div className='w-full space-y-6'>
@@ -235,10 +235,10 @@ function App() {
 
       {/* Let's Connect Section */}
       <div id='connect' className='relative flex flex-col justify-center items-center md:mx-8 w-full md:w-3/4'>
-        <div className='text-neutral-200 font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
+        <div className='text-[var(--head-color)] font-instrument-serif text-3xl mb-2 border-b-2 border-dashed border-purple-400' onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>
           Let's Connect
         </div>
-        <p className='text-neutral-400 text-sm mb-6 text-center'>
+        <p className='text-[var(--subtext-color)] text-sm mb-6 text-center'>
           Feel free to reach out for collaborations or just a friendly chat.
         </p>
         <div className='flex flex-wrap justify-center gap-4'>

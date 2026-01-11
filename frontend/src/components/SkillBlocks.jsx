@@ -8,8 +8,8 @@ export function Box({prop, size}) {
     textsize = 'text-sm';
   }
   return (
-    <div className='group flex items-center justify-center gap-2 border border-neutral-700 hover:border-neutral-500 font-gabarito p-1 m-1 rounded-md duration-200 cursor-pointer'>
-        <img src={`skills/${prop.image}.png`} alt={prop.name} className={`${heightClass} w-auto object-cover group-hover:grayscale-0 grayscale duration-200`} />
+    <div className='group flex items-center justify-center gap-2 border border-[var(--card-border)] hover:border-[var(--subtext-color)] font-gabarito p-1 m-2 rounded-md duration-200 cursor-pointer'>
+        <img src={`skills/${prop.image}.png`} alt={prop.name} className={`${heightClass} w-auto py-1 object-cover duration-200`} />
         <div className={`${textsize}`}>{prop.name}</div>
     </div>
     )

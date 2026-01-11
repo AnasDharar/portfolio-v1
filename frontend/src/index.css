@@ -1,6 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Instrument+Serif:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
 @import "tailwindcss";
+
+:root {
+  /* Light Mode Defaults */
+  --bg-main: #ffffff;
+  --text-main: #000000;
+  --head-color: #171717; /* neutral-900 */
+  --text-color: #404040; /* neutral-700 */
+  --subtext-color: #525252; /* neutral-600 */
+  --border-color: #e5e5e5; /* neutral-200 */
+  --card-bg: #ffffff;
+  --card-border: #e5e5e5; /* neutral-200 */
+  --hover-bg: #f5f5f5; /* neutral-100 */
+  --footer-bg: #f5f5f5; /* neutral-100 */
+  --invert-value: 0;
+}
+
+.dark {
+  /* Dark Mode Overrides */
+  --bg-main: #171717; /* neutral-900 */
+  --text-main: #ffffff;
+  --head-color: #e5e5e5; /* neutral-200 */
+  --text-color: #d4d4d4; /* neutral-300 */
+  --subtext-color: #a3a3a3; /* neutral-400 */
+  --border-color: #404040; /* neutral-700 */
+  --card-bg: #171717; /* neutral-900 */
+  --card-border: #171717; /* neutral-900 */
+  --hover-bg: #262626; /* neutral-800 */
+  --footer-bg: #0a0a0a; /* neutral-950 */
+  --invert-value: 1;
+}
+
 @theme {
     --font-instrument-serif: 'Instrument Serif', serif;
     --font-gabarito: 'Gabarito', sans-serif;

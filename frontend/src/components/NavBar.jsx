@@ -9,16 +9,16 @@ export const NavBar = ({setIsHover, setIsDark, isDark}) => {
 
   return (
     <>
-      <div className='sticky top-4 left-0 flex backdrop-blur-sm bg-black/30 justify-between items-center p-4 m-4 w-full rounded-full border border-neutral-700 text-neutral-400 font-gabarito z-50'>
-        <div className='ml-4 font-instrument-serif text-white text-2xl italic'>
-          Salaar
+      <div className='sticky top-4 left-0 flex backdrop-blur-sm bg-[var(--bg-main)]/30 justify-between items-center p-4 m-4 w-full rounded-full border border-[var(--border-color)] text-[var(--subtext-color)] font-gabarito z-50'>
+        <div className='ml-4 font-instrument-serif text-[var(--text-main)] text-2xl italic'>
+          Anas.
         </div>
         
         {/* Desktop Navigation */}
         <div className='hidden md:flex gap-4 text-lg mr-4'>
-          <a href='#exp' className='hover:text-neutral-100 cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>experience</a>
-          <a href='#projects' className='hover:text-neutral-100 cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>projects</a>
-          <a href='#connect' className='hover:text-neutral-100 cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>connect</a>
+          <a href='#exp' className='hover:text-[var(--text-main)] cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>experience</a>
+          <a href='#projects' className='hover:text-[var(--text-main)] cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>projects</a>
+          <a href='#connect' className='hover:text-[var(--text-main)] cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>connect</a>
           <button
           onClick={() => setIsDark(!isDark)}
           className="cursor-pointer"
@@ -35,17 +35,17 @@ export const NavBar = ({setIsHover, setIsDark, isDark}) => {
           aria-label="Toggle menu"
         >
           <span 
-            className={`block w-6 h-0.5 bg-neutral-400 transition-all duration-300 ${
+            className={`block w-6 h-0.5 bg-[var(--subtext-color)] transition-all duration-300 ${
               isMenuOpen ? 'rotate-45 translate-y-1.5' : ''
             }`}
           ></span>
           <span 
-            className={`block w-6 h-0.5 bg-neutral-400 transition-all duration-300 ${
+            className={`block w-6 h-0.5 bg-[var(--subtext-color)] transition-all duration-300 ${
               isMenuOpen ? 'opacity-0' : ''
             }`}
           ></span>
           <span 
-            className={`block w-6 h-0.5 bg-neutral-400 transition-all duration-300 ${
+            className={`block w-6 h-0.5 bg-[var(--subtext-color)] transition-all duration-300 ${
               isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''
             }`}
           ></span>
@@ -54,25 +54,25 @@ export const NavBar = ({setIsHover, setIsDark, isDark}) => {
 
       {/* Mobile Menu */}
       <div 
-        className={`md:hidden fixed top-20 right-4 backdrop-blur-sm bg-black/90 border border-neutral-700 rounded-2xl overflow-hidden transition-all duration-300 z-10 ${
+        className={`md:hidden fixed top-20 right-4 backdrop-blur-sm bg-[var(--bg-main)]/90 border border-[var(--border-color)] rounded-2xl overflow-hidden transition-all duration-300 z-10 ${
           isMenuOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className='flex flex-col p-6 gap-4 text-lg text-neutral-400 font-gabarito'>
+        <div className='flex flex-col p-6 gap-4 text-lg text-[var(--subtext-color)] font-gabarito'>
           <a href='#exp'
-            className='hover:text-neutral-300 cursor-pointer' 
+            className='hover:text-[var(--text-color)] cursor-pointer' 
             onClick={toggleMenu}
           >
             experience
           </a>
           <a href='#projects' 
-            className='hover:text-neutral-300 cursor-pointer' 
+            className='hover:text-[var(--text-color)] cursor-pointer' 
             onClick={toggleMenu}
           >
             projects
           </a>
           <a href='#connect'
-            className='hover:text-neutral-300 cursor-pointer' 
+            className='hover:text-[var(--text-color)] cursor-pointer' 
             onClick={toggleMenu}
           >
             connect

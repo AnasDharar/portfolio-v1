@@ -1,6 +1,12 @@
-import React from 'react';
-
+import React, { useRef } from 'react';
+import { useEffect } from 'react';
 export const Footer = ({ setIsHover}) => {
+  let views = useRef(null);
+  useEffect(() => {
+  fetch('/api/views') 
+    .then(res => res.json())
+    .then(data => {views.current.textContent = `You are ${data.views}th visitor`; console.log("Current views:", data.views)});
+}, []);
   return (
     <footer className="w-full mt-16 border-t border-[var(--border-color)] bg-[var(--footer-bg)]/50 backdrop-blur-sm">
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -13,6 +19,7 @@ export const Footer = ({ setIsHover}) => {
               © {new Date().getFullYear()} All rights reserved.
             </p>
           </div>
+          <div ref={views}></div>
         </div>
       </div>
     </footer>

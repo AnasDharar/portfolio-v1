@@ -33,6 +33,6 @@ export const TypingEffect = () => {
     }, [text, phase, wordIndex]);
 
   return (
-    <> <div>{text}</div> <span className='cursor animate-pulse [animation-duration:1s]'> | </span></>
+    <> <div>{text}</div><span className='cursor animate-pulse [animation-duration:1s]'>|</span></>
   )
 }

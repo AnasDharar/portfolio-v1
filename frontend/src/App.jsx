@@ -78,7 +78,7 @@ function App() {
 
       <div className='flex flex-col md:ml-4 md:mr-4 mt-10 text-[var(--text-main)] font-gabarito duration-100'>
         <div className='md:flex items-center'>
-        <img src="/newpfp.jpeg" alt="Logo" className='w-20 md:w-20 h-auto m-2 object-cover rounded-full' />
+        <img src="/newpfp.jpeg" alt="Logo" className='w-20 md:w-20 h-20 m-2 object-cover rounded-full' />
         <div className='grid grid-cols-1 md:grid-cols-2 ml-4 space-x-2'>
           <div className='md:text-5xl text-3xl text-[var(--text-main)] font-bold font-instrument-serif'>
             <div className='border-b-2 border-dashed border-purple-400 w-fit'>

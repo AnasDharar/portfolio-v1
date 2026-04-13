@@ -23,8 +23,8 @@ export const Projects = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:w-full w-3/4'>
         {projects.map((project, index) => (
 
-            <div className='border bg-[var(--card-bg)] border-[var(--card-border)] rounded-xl hover:shadow-lg hover:shadow-amber-300/10 duration-200 group'>
-            <img src={`projects/${project.image}.png`} alt="" className='rounded-xl group-hover:scale-105 group-hover:border group-hover:border-neutral-500 duration-200' />
+            <div className='border overflow-hidden bg-[var(--card-bg)] border-[var(--card-border)] rounded-xl hover:shadow-lg hover:shadow-amber-300/10 duration-200 group'>
+            <img src={`projects/${project.image}.png`} alt="" className=' group-hover:scale-105 duration-200' />
             <div className='md:p-6 p-2'>
                 <h3 className='text-2xl text-[var(--text-color)] font-gabarito font-bold md:mb-2 group-hover:text-[var(--head-color)] duration-200'>{project.name}</h3>
                 <div className='flex flex-wrap md:mb-4'>
